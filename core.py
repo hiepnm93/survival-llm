@@ -69,9 +69,11 @@ TOOLS = [
 
 # Qwen drafts an answer before it searches when its reasoning is fully off, so with Reasoning off it still gets a brief
 # think (held to the short limit); Qwen's highest effort goes with the long and unlimited settings.
-THINK_OFF = {"qwen": "low"}
-THINK_LONG = {"qwen": "xhigh"}
+# Qwen3.6 (run from a GGUF) takes "low"/"medium"/"high"/"max" but not "xhigh".
+THINK_OFF = {"qwen": "low", "qwen3.6": "low"}
+THINK_LONG = {"qwen": "xhigh", "qwen3.6": "max"}
 SAMPLING = {
+    "qwen3.6": {"temperature": 0.7, "top_p": 0.8, "top_k": 20},  # before "qwen": family() takes the first match
     "qwen": {"temperature": 0.7, "top_p": 0.8, "top_k": 20},
     "nemotron": {"temperature": 0.7, "top_p": 0.95},
     "granite": {"temperature": 0.3, "top_p": 0.9},
@@ -96,6 +98,8 @@ def family(model):
         return known
     details = _show(model).get("details") or {}
     names = " ".join([details.get("family") or ""] + (details.get("families") or [])).lower()
+    if "qwen35" in names:  # Qwen3.5/3.6 GGUFs report qwen35/qwen35moe and take the same think levels
+        return "qwen3.6"
     return next((f for f in SAMPLING if f in names), "")
 
 
@@ -119,7 +123,7 @@ def think_setting(model, caps, reasoning="off"):
         return THINK_OFF.get(fam, False)
     if reasoning in ("long", "none"):
         return THINK_LONG.get(fam, True)
-    return "low" if fam == "qwen" and reasoning == "short" else True
+    return "low" if fam.startswith("qwen") and reasoning == "short" else True
 
 
 def system_prompt(library, tools=True):

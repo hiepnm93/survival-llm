@@ -1,5 +1,22 @@
 # Survival LLM
 
+> **Fork note.** This is a fork of [anonnerdfrenzy/survival-llm](https://github.com/anonnerdfrenzy/survival-llm)
+> by Ronny Fernandez (MIT, see `LICENSE`; library content keeps its own licenses, see `SOURCES.md`).
+> All credit for the app, the library and the evals goes to the original project.
+>
+> What this fork changes: it adds **Qwen3.6 35B-A3B** (unsloth GGUF `UD-Q4_K_XL`, 22.4 GB,
+> `hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`) and recommends it first on PCs with 32 GB of memory,
+> so a PC with a **12 GB graphics card** gets a smart model: it is a mixture-of-experts model with only
+> 3B active parameters, so Ollama puts about 10.8 GB on the GPU and the rest in system memory.
+> Tested with Ollama 0.30.10 on an RTX 3080 Ti 12 GB + 64 GB RAM (Linux): tool calls work, about
+> 46 tokens a second, about 32 GB in all at the app's 32k context. It has **not** been through the
+> original project's blind-judged safety evals below, so check its sources like any other model.
+> Qwen3.6 accepts think levels `low`/`medium`/`high`/`max` (not `xhigh`), so `core.py` gives it its own family.
+> This fork ships no builds; run it from source. The app's update check still points at the original project.
+>
+> Already have the GGUF? `printf 'FROM /path/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf\n' > Modelfile &&
+> ollama create qwen3.6-35b-a3b -f Modelfile` (any name containing `qwen3.6` picks the right settings).
+
 A free AI assistant and survival library that runs entirely on your own computer and works with no
 internet. Ask it how to keep food safe in a blackout, treat a burn or purify water: it searches an
 offline library of medical, emergency, how-to and encyclopedia articles, answers from what it finds,
@@ -53,6 +70,7 @@ The app checks your memory and suggests a model. More memory, smarter model.
 | Your computer | Model | Download |
 |---|---|---|
 | Mac with 128 GB or more | NVIDIA Nemotron 3.5 Super (`nemotron-3.5-super:120b-a12b-nvfp4`) | 80 GB |
+| Mac or PC with 32 GB or more (PC: ideally a 12 GB graphics card) | Qwen3.6 35B-A3B (`hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`, this fork) | 23 GB |
 | Mac with 32-96 GB | Qwen3.8 27B (`qwen3.8:27b-mlx`) | 18 GB |
 | Windows PC with 32 GB or more | NVIDIA Nemotron 3.5 Lightning (`nemotron-3.5-lightning:30b-a3b`) | 25 GB |
 | Mac or PC with 16-31 GB | IBM Granite 4.2 8B (`granite4.2:8b`) | 6 GB |

@@ -62,6 +62,12 @@ CATALOG = [
      "mac": "nemotron-3.5-super:120b-a12b-nvfp4", "win": "nemotron-3.5-super:120b-a12b", "gb": {"mac": 80, "win": 90},
      "blurb": {"mac": "The smartest option: knows the most and is the least likely to make things up. Quick on Apple Silicon.",
                "win": "The smartest option: knows the most and is the least likely to make things up. Needs a powerful PC."}},
+    {"key": "qwen36-a3b", "name": "Qwen3.6 35B-A3B", "maker": "Alibaba", "min_ram": 32,
+     "mac": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL", "win": "hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL",
+     "gb": {"mac": 23, "win": 23},
+     "blurb": {"mac": "Smart and quick: only 3B of its 35B parameters work on each word. Needs 32 GB of memory.",
+               "win": "Smart and quick on a PC with a 12 GB graphics card and 32 GB of memory: part of the model "
+                      "runs on the graphics card, the rest on the processor."}},
     {"key": "qwen-27b", "name": "Qwen3.8 27B", "maker": "Alibaba", "min_ram": 32,
      "mac": "qwen3.8:27b-mlx", "win": "qwen3.8:27b", "gb": {"mac": 18, "win": 18},
      "blurb": {"mac": "Careful and thorough: looks things up for every question. A great fit for 32-64 GB Macs.",
@@ -88,8 +94,10 @@ CATALOG = [
 # Granite 4.2 3B was dropped: 5 of its 22 test answers could hurt someone, 2 of them fatally.
 # Nemotron Super needs 128 GB: macOS lets the GPU use about three quarters of memory, and the model is 80 GB.
 # Windows doesn't get it: its 90 GB build would run mostly on the processor, far too slowly.
-PREFERENCE = {"mac": ["nemotron-super", "qwen-27b", "nemotron-lightning", "granite-8b", "gemma-e4b"],
-              "win": ["nemotron-lightning", "qwen-27b", "granite-8b", "gemma-e4b"]}
+# Qwen3.6 35B-A3B (unsloth UD-Q4_K_XL GGUF) comes first where it fits: tested on an RTX 3080 Ti 12 GB + 64 GB PC,
+# about 46 tokens a second with 10.8 GB on the GPU and the rest in memory (32 GB in all at a 32k context).
+PREFERENCE = {"mac": ["nemotron-super", "qwen36-a3b", "qwen-27b", "nemotron-lightning", "granite-8b", "gemma-e4b"],
+              "win": ["qwen36-a3b", "nemotron-lightning", "qwen-27b", "granite-8b", "gemma-e4b"]}
 ALIASES = {"granite4.2": "granite-8b"}  # granite4.2:latest is the same 8B model
 NOT_CHAT = ("embed", "bge-", "nomic", "minilm")
 DISK_MARGIN_GB = 5  # keep this much free after a download
