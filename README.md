@@ -160,6 +160,20 @@ ba câu còn thiếu ý là: chế độ tiết kiệm pin, khử trùng nhà v�
 Kết quả thô ở `evals/results/qwen36-a3b-lite/` và `evals/results/qwen36-a3b-full/`. Dòng Qwen 3.6 của dự án gốc lấy từ
 `evals/results/summary.jsonl` (mô hình `qwen3.6`).
 
+**Sau lỗi "cái chổi" (nhánh `safety-retrieval`).** Với câu "A power line is down in my front yard", mô hình đọc
+nhầm bài về lũ rồi bảo đẩy nạn nhân ra bằng cán chổi gỗ khô. Có 5 thay đổi để vá lỗi này:
+(1) khoảng 20 **thẻ an toàn** (`library/safety_cards.py`), mỗi thẻ vài câu hướng dẫn chính thức kèm tên nguồn
+(Ready.gov, CDC, Red Cross…). Thẻ nào khớp với câu hỏi thì được đưa vào ngữ cảnh trước khi mô hình trả lời, mô hình
+không được nói ngược lại, và thẻ được tính là một nguồn để trích dẫn;
+(2) bỏ luật "make something up". Khi không có nguồn, mô hình phải nói thư viện không có và chỉ đưa các bước thận trọng.
+Với điện, lửa, gas, hóa chất và cứu người dưới nước, nó không bao giờ được hướng dẫn chạm vào hay tự cứu khi không
+có nguồn. Câu hỏi ước lượng vẫn được cho một con số phỏng đoán;
+(3) tìm kiếm tốt hơn: thêm từ đồng nghĩa cho các mối nguy, lấy nhiều ứng viên BM25 hơn rồi xếp lại theo độ trùng
+với tiêu đề. Có thể bật thêm bước xếp lại bằng embedding qua Ollama bằng biến `SURVIVAL_LLM_EMBED=<model>`;
+(4) nguồn chính thức được ưu tiên mạnh hơn;
+(5) **tự kiểm tra**: với câu hỏi về mối nguy, một lệnh gọi ngắn không dùng tool so câu trả lời với thẻ, rồi thay câu
+trả lời bằng bản đã sửa nếu nó sai. **Đang chấm lại** với bộ eval sau các thay đổi này.
+
 ## Nó hoạt động thế nào
 
 ```

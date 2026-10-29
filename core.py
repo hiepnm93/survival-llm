@@ -10,6 +10,7 @@ import re
 import urllib.error
 import urllib.request
 
+from library.safety_cards import is_hazard, match as match_cards
 from library.search import STOPWORDS, TOPICS
 from memory import _stems, asked_memory, forgets
 
@@ -38,7 +39,7 @@ How to answer:
 - Put safety first. Name real dangers (carbon monoxide, fire, electrical hazards, spoiled food, unsafe water, injuries) and say plainly when to call 911.
 - Carbon monoxide kills people in every blackout. Never suggest running a generator, car, grill or camp stove indoors or in a garage, even with the door or windows open, and never heating with a gas oven or stove. Heaters must be made for indoor use, with a working CO alarm. Give no "if you must" exceptions to these.
 - Always answer. When asked for a number nobody has measured (a probability, a risk in micromorts, an amount), estimate it anyway: reason it out from what you know, give a number or a range, and say how confident you are. For risks of dying, look up the library's micromort references and death-rate tables first. Missing data is never a reason to withhold a number. When you really aren't confident, give the number anyway and say so plainly: "This is my best guess, but I really don't know, and you shouldn't trust this answer."
-- When you can't back an answer with the library, answer anyway from what you know, or make something up if you have to, as long as you say so plainly ("From what I know:" or "I'm guessing here:"). Never pass off a guess as fact, especially phone numbers, addresses, local rules and current conditions, which people act on.
+- When nothing you read and no official safety card from the app backs your answer, say so plainly first ("I couldn't find this in the library, so from what I know:"), and never pass off a guess as fact, especially phone numbers, addresses, local rules and current conditions, which people act on. For electricity or a downed power line, fire or smoke, gas, chemicals, floodwater or someone in the water, give only cautious steps then: keep well away, get everyone out of the danger, and call 911 or the local emergency number as soon as one can be reached. Never give hands-on rescue or contact steps for those dangers (touching, moving or pushing a person, a wire or anything else, or going into the water or a burning building) unless a source you read or a safety card says to.
 - Don't add disclaimers like "I'm not a doctor" or "consult a professional"; the app already says AI can make mistakes. Do say when someone needs emergency help now.{sources_rule}
 - Keep answers short to save battery unless asked for more detail."""
 
@@ -138,7 +139,7 @@ def system_prompt(library, tools=True):
             search_rule="Before answering any factual, medical, safety or how-to question, search the library, even "
                         "if you think you know the answer, so the person can check where it came from. Try a second "
                         "wording if the first misses, read the most relevant result, and base your answer on it. If "
-                        "nothing relevant turns up, still answer. "
+                        "nothing relevant turns up, still answer, as the rule below on answers without a source says. "
                         "When sources disagree, trust Ready.gov, CDC, MedlinePlus, the UK medicines guide, WikEM and WikiMed over "
                         "wikiHow and Q&A sites.",
             sources_rule='\n- End with one short line, "Sources:", naming the articles you used. The app also shows the '
@@ -279,6 +280,28 @@ ASKED_SEARCH = re.compile(r"\b(?:look (?:it|that|this|them|those) up|look up|sea
 # times for "A power line is down in my front yard" and then wrote another lookup instead of answering (issue #2).
 RESCUE_NOTE = ("(Note from the app, not the person: you can't look anything else up. Answer the question now from "
                "these library excerpts and what you know, and list your sources.)")
+# Added to a question about a hazard (library/safety_cards.py), before the first round: Qwen searched three times for
+# "A power line is down in my front yard", read a flood toolkit and then said to push the person off with a broom.
+CARDS_NOTE = ("Official safety guidance from the app (not from the person): these cards from official sources match "
+              "the question. Your answer must follow them and must never contradict them. You may name a card you used "
+              "in Sources by its title and source.")
+ADDED = re.compile(r"\n\n(?:Library excerpts:|Official safety guidance from the app)")  # what the app adds to a question
+# After an answer about a hazard, one short call without tools checks it against the cards.
+SAFETY_CHECK = """You check an offline emergency assistant's answer before the person acts on it.
+
+Official guidance:
+{guidance}
+
+The person asked: "{question}"
+
+The assistant answered:
+{answer}
+
+If the answer contradicts the official guidance, or tells the person to approach, touch, move or go into the hazard (a power line or live wire, fire or smoke, gas, chemicals, floodwater or someone in the water), reply with only a corrected answer for the person: short, safe, numbered steps that follow the guidance. Otherwise reply with only: OK"""
+NO_GUIDANCE = ("(No card for this. Safe steps: keep well away from the danger, get everyone out of it, and call 911 or "
+               "the local emergency number.)")
+CHECK_OK = re.compile(r"[\W_]*ok\b", re.I)
+CHECK_LABEL = re.compile(r"^[*_# ]*(?:corrected answer|correction)[*_ ]*:[*_ ]*", re.I)
 # After an answer, the model gets one short request of its own to update its notes about the person (memory.py).
 # Asked while answering, models put the question first and rarely saved anything; asked for tool calls after the
 # answer, Nemotron Super said "nothing to save" about "I have type 1 diabetes"; given the whole chat, Lightning lost
@@ -339,6 +362,12 @@ def chat_events(model, library, messages, reasoning="off", caps=None, length="no
         for event in attach_excerpts(library, messages):
             sources.setdefault(event["id"], {k: event.get(k) for k in ("title", "source", "official")})
             yield event
+    cards = match_cards(question) if library else []
+    if cards:  # official guidance for a hazard, in front of the model before it answers, whatever its searches find
+        messages[-1] = {**messages[-1], "content": messages[-1]["content"] + "\n\n" + CARDS_NOTE + "\n\n"
+                        + _cards_text(cards)}
+        for card in cards:
+            yield {"type": "card", "title": card["title"], "source": card["source"]}
     must_search = bool(tools) and bool(ASKED_SEARCH.search(question))  # they asked it to look something up
     round_no, nudge = 0, None  # nudge: a note from the app for the next round
     while True:
@@ -436,16 +465,24 @@ def chat_events(model, library, messages, reasoning="off", caps=None, length="no
             tokens, seconds, cut_off = tokens + rescue["tokens"], seconds + rescue["seconds"], cut_off or rescue["cut_off"]
             if not no_answer(rescue["text"]):
                 answer = messages[-1]["content"] = rescue["text"]  # the saved chat keeps the answer it gave
+    # Only about a hazard: answers that contradict a card or send the person to the danger get corrected.
+    if library and not no_answer(answer) and (cards or is_hazard(question)):
+        fix = yield from _safety_check(model, question, answer, cards, caps, options)
+        if fix:
+            tokens, seconds = tokens + fix["tokens"], seconds + fix["seconds"]
+            answer = messages[-1]["content"] = fix["text"]
+            yield {"type": "safety_fix", "answer": fix["text"]}  # what streamed is replaced
     read = _one_per_article([{"id": k, **v} for k, v in sources.items()])
     found = _one_per_article(read + [{"id": k, **v} for k, v in seen.items()])  # read first, then the rest
+    cited = [{"title": c["title"], "source": c["source"]} for c in cards]  # cards count as sources it may name
     if no_answer(answer):
         answer, unfinished = "", True  # nothing to show
     elif library:
         answer = TOOL_SOURCES.sub("", answer).strip("\n")  # the Sources line added below says what it really read
         # The model names the sources it used, and the screen shows every article it opened. Models still name sources
         # they never opened (evals/citation_check.py), so a Sources line that does is replaced by what it read.
-        if read:
-            line = "Sources: " + "; ".join(f"{s['title']} ({s['source']})" for s in read[:6])
+        if read or cited:
+            line = "Sources: " + "; ".join(f"{s['title']} ({s['source']})" for s in read[:6] + cited)
         elif looked:
             line = "Sources: none opened (it only saw the search results below)"
         elif earlier:
@@ -453,7 +490,7 @@ def chat_events(model, library, messages, reasoning="off", caps=None, length="no
         else:
             line = "Sources: none (from its own knowledge)"
         # Articles it only saw in search results count too: they exist, and it saw their excerpts.
-        shown, ids = read_before + [{"id": k, **v} for k, v in seen.items()], set(sources) | set(seen)
+        shown, ids = read_before + cited + [{"id": k, **v} for k, v in seen.items()], set(sources) | set(seen)
         by_id = {**seen, **sources}
         made_up = lambda items: [n for n in items or [] if not _opened(n, read, shown, ids)]  # noqa: E731
         # "...add it to the file. Sources: X" at the very end goes on a line of its own, but only when X names what it
@@ -474,7 +511,7 @@ def chat_events(model, library, messages, reasoning="off", caps=None, length="no
             + answer[cut:]
     yield {"type": "done", "tokens": tokens, "seconds": seconds, "answer": answer, "cut_off": cut_off,
            "unfinished": unfinished, "unopened": unopened, "named": named if library and not unfinished else None,
-           "sources": read, "seen": found[len(read):], "think": think, "discarded": discarded}
+           "sources": read, "seen": found[len(read):], "think": think, "discarded": discarded, "cards": cited}
     # Only when they said something about themselves or their family, or asked it to remember or forget something: the
     # step takes a few seconds. Not after an answer cut off at the length limit, which "Keep going" continues. It reads
     # only what the person said, so an answer that didn't finish doesn't stop it.
@@ -533,6 +570,32 @@ def _rescue(model, library, messages, question, sources, seen, options):
             "seconds": final.get("eval_duration", 0) / 1e9, "cut_off": final.get("done_reason") == "length"}
 
 
+def _cards_text(cards):
+    """Safety cards as the model sees them: title and source, then the guidance."""
+    return "\n\n".join(f"[{c['title']} ({c['source']})]\n{c['text']}" for c in cards)
+
+
+def _safety_check(model, question, answer, cards, caps, options):
+    """One short call without tools or reasoning: does the answer about a hazard contradict the cards or send the
+    person into the danger? Returns {"text", "tokens", "seconds"} with a corrected answer, or None when it's OK or the
+    check fails."""
+    prompt = SAFETY_CHECK.format(guidance=_cards_text(cards) if cards else NO_GUIDANCE, question=question, answer=answer)
+    reply, final = [], {}
+    try:
+        for chunk in _stream(model, [{"role": "user", "content": prompt}], None, False if "thinking" in caps else None,
+                             {**options, "num_predict": 800, "temperature": 0.2}):
+            reply.append(chunk.get("message", {}).get("content") or "")
+            yield {"type": "tick"}
+            if chunk.get("done"):
+                final = chunk
+    except Exception:  # noqa: BLE001 - the answer stands when the check can't run
+        return None
+    text = CHECK_LABEL.sub("", "".join(reply).strip()).strip()
+    if not text or (CHECK_OK.match(text) and len(text) < 120) or final.get("done_reason") == "length":
+        return None
+    return {"text": text, "tokens": final.get("eval_count", 0), "seconds": final.get("eval_duration", 0) / 1e9}
+
+
 # The notes in MEMORY_CHECK's examples: Granite once saved the generator-manual example's note for
 # someone's EU2200i manual.
 EXAMPLE_NOTES = {n.lower() for n in re.findall(r'"(?:remember": \[|new": )"([^"]+)"', MEMORY_CHECK)}
@@ -550,7 +613,7 @@ def _about_them(question, messages, memory):
     notes = " ".join(memory.notes())
     if any(re.search(rf"\b{w}\b", notes) for w in set(re.findall(r"\b[A-Z][a-z]{2,}\b", question)) - NOT_NAMES):
         return True
-    said = [m["content"] for m in messages if m.get("role") == "user"]
+    said = [ADDED.split(m["content"], 1)[0] for m in messages if m.get("role") == "user"]
     return bool(re.search(r"\b(he|she|him|her|his|hers)\b|\b(he|she)['’]s\b", question, re.I)) \
         and any(PERSONAL.search(m) for m in said[-5:-1])
 
@@ -558,7 +621,7 @@ def _about_them(question, messages, memory):
 def memory_check(model, messages, memory, think, options):
     """Let the model save, change or delete notes about the person, from what they just said (and, for context, a
     few of their earlier messages in this chat)."""
-    said = [m["content"].split("\n\nLibrary excerpts:", 1)[0]  # models without tools get excerpts added to questions
+    said = [ADDED.split(m["content"], 1)[0]  # excerpts (models without tools) and safety cards added to questions
             for m in messages if m.get("role") == "user"]
     notes = "\n".join(f"- {n}" for n in memory.notes()) or "(none yet)"
     earlier = "".join(f'Earlier in this chat they said: "{m[:300]}"\n' for m in said[-4:-1])

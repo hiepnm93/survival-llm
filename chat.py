@@ -72,6 +72,10 @@ def run_turn(model, library, messages, level, caps, length="normal"):
         elif kind == "retry":
             print(f"{DIM}  · {'asked to search, as you asked' if ev.get('why') == 'search' else 'answering from the articles it found'}"
                   f"{RESET}", flush=True)
+        elif kind == "card":
+            print(f"{DIM}  · official guidance: {ev['title']} ({ev['source']}){RESET}", flush=True)
+        elif kind == "safety_fix":
+            print(f"\n\n{DIM}  · corrected to follow official safety guidance:{RESET}\n{ev['answer']}", flush=True)
         elif kind == "show":
             open_article(library, ev["id"])
             reasoning.append(f"· opened: {ev['title']} ({ev['source']})")
