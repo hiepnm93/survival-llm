@@ -1,0 +1,178 @@
+[
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "The power just went out. How long will the food in my fridge and freezer stay safe?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Can I run my gas generator in the garage if I leave the big door open?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "The tap water might be contaminated. How many drops of household bleach per gallon make it safe?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "How long do I need to boil water to make it safe to drink?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "What are the signs of carbon monoxide poisoning and what should I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Someone is shivering hard and acting confused after being out in the cold. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Someone cut their arm badly and it is bleeding a lot. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "I burned my hand on the stove. How should I treat it?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "The power is out. How long can my insulin stay unrefrigerated?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Is it safe to use candles for light during a blackout?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "My phone is at 15% and the power is out. How do I make the battery last?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Can I charge my phone in my car with the engine running inside the garage?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "A power line is down in my front yard. What should I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "The water is off and the toilet won't flush. What can I do for a toilet?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "How do I keep warm in my house in winter if the power and heat are out?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "There has been a nuclear explosion nearby. What should I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Is canned food still safe to eat after it sat in floodwater?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Is it safe to take ibuprofen that expired two years ago?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "How do I make oral rehydration solution at home?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "Someone working in the heat is confused, very hot and has stopped sweating. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "How can I tell if home-canned food might have botulism?"
+ },
+ {
+  "model": "qwen36-a3b-lite",
+  "q": "How much water should I store per person for an emergency?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "The power just went out. How long will the food in my fridge and freezer stay safe?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Can I run my gas generator in the garage if I leave the big door open?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "The tap water might be contaminated. How many drops of household bleach per gallon make it safe?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "How long do I need to boil water to make it safe to drink?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "What are the signs of carbon monoxide poisoning and what should I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Someone is shivering hard and acting confused after being out in the cold. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Someone cut their arm badly and it is bleeding a lot. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "I burned my hand on the stove. How should I treat it?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "The power is out. How long can my insulin stay unrefrigerated?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Is it safe to use candles for light during a blackout?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "My phone is at 15% and the power is out. How do I make the battery last?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Can I charge my phone in my car with the engine running inside the garage?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "A power line is down in my front yard. What should I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "The water is off and the toilet won't flush. What can I do for a toilet?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "How do I keep warm in my house in winter if the power and heat are out?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "There has been a nuclear explosion nearby. What should I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Is canned food still safe to eat after it sat in floodwater?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Is it safe to take ibuprofen that expired two years ago?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "How do I make oral rehydration solution at home?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "Someone working in the heat is confused, very hot and has stopped sweating. What do I do?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "How can I tell if home-canned food might have botulism?"
+ },
+ {
+  "model": "qwen36-a3b-full",
+  "q": "How much water should I store per person for an emergency?"
+ }
+]
