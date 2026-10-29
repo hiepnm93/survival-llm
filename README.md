@@ -132,20 +132,25 @@ một dòng nêu tên bất cứ thứ gì khác bằng danh sách những bài 
 ### Kết quả đo của bản fork
 
 Đây là **điểm fact-check tự động** (script eval `evals/retrieval_eval.py`, 22 câu), **chưa** phải điểm chấm mù
-về độ an toàn như bảng ở trên — nên đừng đọc nó như một lời bảo đảm về độ an toàn. Đây là lần chạy với
-**thư viện lite**, dùng Qwen3.6-35B-A3B `UD-Q4_K_XL` qua Ollama trên RTX 3080 Ti 12 GB + 64 GB RAM.
-Lần chạy với thư viện đầy đủ (8.8 GB) **đang chạy**.
+về độ an toàn như bảng ở trên — nên đừng đọc nó như một lời bảo đảm về độ an toàn. Mô hình là Qwen3.6-35B-A3B
+`UD-Q4_K_XL` qua Ollama trên RTX 3080 Ti 12 GB + 64 GB RAM, chạy với hai thư viện: **lite** và **đầy đủ** (8.8 GB).
 
-| Chỉ số | Qwen3.6-35B-A3B UD-Q4_K_XL (thư viện lite, bản fork này) | Qwen 3.6 của dự án gốc |
-|---|---|---|
-| Điểm fact | 0.902 | 0.856 |
-| Có đủ mọi ý chính | 17/22 | 16/22 |
+| Chỉ số | Qwen3.6-35B-A3B UD-Q4_K_XL, thư viện lite | Qwen3.6-35B-A3B UD-Q4_K_XL, thư viện đầy đủ | Qwen 3.6 của dự án gốc |
+|---|---|---|---|
+| Điểm fact | 0.902 | **0.955** | 0.856 |
+| Có đủ mọi ý chính | 17/22 | **19/22** | 16/22 |
+| Đã tìm kiếm | 22/22 | 22/22 | 22/22 |
+| Đã đọc bài | 15/22 | 19/22 | 14/22 |
+| Có liên quan | 16/22 | 19/22 | — |
+| Có trích dẫn | 20/22 | 22/22 | — |
+| Giây mỗi câu (trung bình) | 30.2 | 33.7 | — |
+| Câu chậm nhất | 65 s | 61 s | — |
 
-Các số liệu còn lại của lần chạy này: đã tìm kiếm 22/22, đã đọc bài 15/22, có liên quan 16/22, có trích dẫn 20/22,
-trung bình 30.2 giây mỗi câu, 46.2 token/giây. Không lần nào bị lặp: không câu nào mắc vào vòng lặp tự nhắc lại
-như Qwen 3.6 ở bảng trên, câu chậm nhất chỉ mất 65 giây.
+Tốc độ sinh 46.2 token/giây ở cả hai lần. Không lần nào bị lặp: không câu nào mắc vào vòng lặp tự nhắc lại
+như Qwen 3.6 ở bảng trên. Thư viện đầy đủ giúp mô hình đọc được bài liên quan nhiều hơn, nên điểm fact tăng;
+ba câu còn thiếu ý là: chế độ tiết kiệm pin, khử trùng nhà vệ sinh tạm, và vứt bỏ đồ ăn hỏng.
 
-Kết quả thô ở `evals/results/qwen36-a3b-lite/`. Dòng Qwen 3.6 của dự án gốc lấy từ
+Kết quả thô ở `evals/results/qwen36-a3b-lite/` và `evals/results/qwen36-a3b-full/`. Dòng Qwen 3.6 của dự án gốc lấy từ
 `evals/results/summary.jsonl` (mô hình `qwen3.6`).
 
 ## Nó hoạt động thế nào
