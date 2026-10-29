@@ -1,133 +1,154 @@
 # Survival LLM
 
-> **Fork note.** This is a fork of [anonnerdfrenzy/survival-llm](https://github.com/anonnerdfrenzy/survival-llm)
-> by Ronny Fernandez (MIT, see `LICENSE`; library content keeps its own licenses, see `SOURCES.md`).
-> All credit for the app, the library and the evals goes to the original project.
+> **Ghi chú về bản fork.** Đây là bản fork của [anonnerdfrenzy/survival-llm](https://github.com/anonnerdfrenzy/survival-llm)
+> do Ronny Fernandez thực hiện (giấy phép MIT, xem `LICENSE`; nội dung thư viện giữ giấy phép riêng của nó, xem `SOURCES.md`).
+> Mọi công lao về ứng dụng, thư viện và các bài eval đều thuộc về dự án gốc.
 >
-> What this fork changes: it adds **Qwen3.6 35B-A3B** (unsloth GGUF `UD-Q4_K_XL`, 22.4 GB,
-> `hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`) and recommends it first on PCs with 32 GB of memory,
-> so a PC with a **12 GB graphics card** gets a smart model: it is a mixture-of-experts model with only
-> 3B active parameters, so Ollama puts about 10.8 GB on the GPU and the rest in system memory.
-> Tested with Ollama 0.30.10 on an RTX 3080 Ti 12 GB + 64 GB RAM (Linux): tool calls work, about
-> 46 tokens a second, about 32 GB in all at the app's 32k context. It has **not** been through the
-> original project's blind-judged safety evals below, so check its sources like any other model.
-> Qwen3.6 accepts think levels `low`/`medium`/`high`/`max` (not `xhigh`), so `core.py` gives it its own family.
-> This fork ships no builds; run it from source. The app's update check still points at the original project.
+> *English version: [README.en.md](README.en.md).*
 >
-> Already have the GGUF? `printf 'FROM /path/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf\n' > Modelfile &&
-> ollama create qwen3.6-35b-a3b -f Modelfile` (any name containing `qwen3.6` picks the right settings).
+> Bản fork này thay đổi những gì: nó thêm **Qwen3.6 35B-A3B** (bản GGUF của unsloth `UD-Q4_K_XL`, 22.4 GB,
+> `hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`) và đề xuất nó đầu tiên trên các máy PC có 32 GB bộ nhớ,
+> nhờ vậy một máy PC với **card đồ họa 12 GB** vẫn có được một mô hình thông minh: đây là mô hình mixture-of-experts
+> chỉ có 3B tham số hoạt động, nên Ollama đặt khoảng 10.8 GB lên GPU và phần còn lại trong bộ nhớ hệ thống.
+> Đã thử với Ollama 0.30.10 trên RTX 3080 Ti 12 GB + 64 GB RAM (Linux): gọi tool hoạt động, khoảng
+> 46 token mỗi giây, tổng cộng khoảng 32 GB ở mức ngữ cảnh 32k của ứng dụng. Nó **chưa** trải qua các bài
+> eval an toàn được chấm mù của dự án gốc ở bên dưới, nên hãy kiểm tra nguồn của nó như với mọi mô hình khác.
+> Qwen3.6 nhận các mức suy luận `low`/`medium`/`high`/`max` (không có `xhigh`), nên `core.py` cho nó một họ riêng.
+> Bản fork này không phát hành bản build nào; hãy chạy nó từ mã nguồn. Phần kiểm tra cập nhật của ứng dụng vẫn trỏ về dự án gốc.
+>
+> Đã có sẵn file GGUF? `printf 'FROM /path/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf\n' > Modelfile &&
+> ollama create qwen3.6-35b-a3b -f Modelfile` (bất kỳ tên nào có chứa `qwen3.6` đều chọn đúng cấu hình).
 
-A free AI assistant and survival library that runs entirely on your own computer and works with no
-internet. Ask it how to keep food safe in a blackout, treat a burn or purify water: it searches an
-offline library of medical, emergency, how-to and encyclopedia articles, answers from what it finds,
-and shows you the exact passage each answer came from.
+Một trợ lý AI miễn phí kèm thư viện sinh tồn, chạy hoàn toàn trên máy tính của bạn và hoạt động không cần
+internet. Hãy hỏi nó cách giữ thực phẩm an toàn khi mất điện, cách xử lý vết bỏng hay cách làm sạch nước: nó
+tìm trong một thư viện offline gồm các bài viết y khoa, cứu hộ khẩn cấp, hướng dẫn thực hành và bách khoa toàn thư,
+trả lời dựa trên những gì tìm được, và chỉ cho bạn đúng đoạn văn mà mỗi câu trả lời xuất phát từ đó.
 
-- **Offline and private.** The AI model and the library live on your computer. Your questions never leave it, and once set up it works with the internet off.
-- **Shows its sources.** Every answer lists the articles it read; click one to read it yourself, cited passage highlighted, with its license. Ask "where did you get that?" and it opens the source.
-- **Shows its reasoning.** Show reasoning, under each answer, opens what the AI thought before it answered, step by step, with the searches and articles it read in between. It stays hidden until you click it. How much it reasons is up to you: Reasoning, next to Send, is a budget (Off, 1,000, 4,000 or 16,000 tokens, or no limit), and at the limit its thinking stops and it answers from what it has.
-- **Yours to adjust.** The Instructions button shows the instructions the AI gets before you ask anything (the app adds today's date, the names of your files and your Memory notes after them); edit them and Save to change how it answers (Reset brings back the original). The Length limit next to Send sets how long an answer may run, or turns the limit off.
-- **Add your own files.** Your files, at the top, takes PDFs, Word documents, EPUB ebooks, web pages and text files (drop them on the window or choose them), so the AI can search your generator's manual, your medicines list or your family's emergency plan along with the library. They stay on your computer, in the `Survival LLM Files` folder in your home folder; files you put in that folder, or change there, are picked up on their own. It can't read scans or photos of pages yet.
-- **Remembers you.** Tell it your daughter is allergic to penicillin or that you have a Honda generator, and it saves a short note so later chats know it too; each answer shows what it saved, with Undo. Memory, at the top, shows every note in one list you can edit, and a switch turns off the AI's saving (it still reads the notes you keep). The notes stay on your computer, in one plain text file with the app's settings.
-- **Updates itself.** Check for updates, at the bottom of the window, looks for a new version (it also looks once a day while it runs, by fetching one small file from the project's web page; nothing about you is sent). Update now downloads it, checks it, and restarts into it, keeping your models, library, files and settings. Newer libraries are offered there too.
-- **Built for emergencies.** About 1.5 million articles (500,000 in the smaller download): about 930,000 of Wikipedia's most-read articles, WikiMed, MedlinePlus, a UK medicines guide, WikEM, Ready.gov, CDC, U.S. military and FEMA survival and first-aid manuals, the USDA canning guide, risk references for estimating micromorts (life tables, U.S. death rates), wikiHow, iFixit, Appropedia, Energypedia and practical Q&A. See [SOURCES.md](SOURCES.md).
+- **Offline và riêng tư.** Mô hình AI và thư viện nằm trên máy tính của bạn. Câu hỏi của bạn không bao giờ rời khỏi máy, và sau khi cài đặt xong thì nó hoạt động với internet đã tắt.
+- **Chỉ rõ nguồn.** Mỗi câu trả lời liệt kê những bài viết nó đã đọc; nhấp vào một bài để tự đọc, với đoạn được trích dẫn đã bôi sáng, kèm giấy phép của nó. Hãy hỏi "bạn lấy thông tin đó từ đâu?" và nó sẽ mở nguồn ra.
+- **Chỉ rõ lập luận.** Nút hiện lập luận, bên dưới mỗi câu trả lời, mở ra những gì AI đã suy nghĩ trước khi trả lời, từng bước một, cùng với các lượt tìm kiếm và những bài viết nó đã đọc ở giữa. Phần này vẫn ẩn cho đến khi bạn nhấp vào. Nó suy luận nhiều hay ít là do bạn quyết định: nút Lập luận, cạnh nút Gửi, là một hạn mức (Tắt, 1.000, 4.000 hay 16.000 token, hoặc không giới hạn), và khi đến hạn mức thì nó dừng suy nghĩ và trả lời bằng những gì đang có.
+- **Bạn có thể tùy chỉnh.** Nút Hướng dẫn hiển thị những chỉ dẫn mà AI nhận được trước khi bạn hỏi bất cứ điều gì (ứng dụng thêm ngày hôm nay, tên các file của bạn và các ghi chú trong Bộ nhớ của bạn vào sau đó); hãy sửa chúng rồi Lưu để thay đổi cách nó trả lời (Đặt lại sẽ mang bản gốc trở lại). Hạn mức độ dài cạnh nút Gửi đặt ra độ dài tối đa của một câu trả lời, hoặc tắt hạn mức đó đi.
+- **Thêm file của riêng bạn.** Nút File của bạn, ở phía trên, nhận file PDF, tài liệu Word, ebook EPUB, trang web và file văn bản (thả chúng vào cửa sổ hoặc chọn chúng), nhờ vậy AI có thể tìm trong sách hướng dẫn máy phát điện của bạn, danh sách thuốc của bạn hay kế hoạch khẩn cấp của gia đình bạn cùng với thư viện. Chúng vẫn nằm trên máy tính của bạn, trong thư mục `Survival LLM Files` ở thư mục home của bạn; những file bạn đặt vào thư mục đó, hoặc sửa ở đó, sẽ tự được nhận. Nó chưa đọc được bản scan hay ảnh chụp trang giấy.
+- **Nhớ về bạn.** Hãy nói với nó rằng con gái bạn bị dị ứng penicillin hay rằng bạn có một máy phát điện Honda, và nó lưu lại một ghi chú ngắn để các cuộc trò chuyện sau cũng biết điều đó; mỗi câu trả lời cho thấy nó đã lưu gì, kèm nút Hoàn tác. Nút Bộ nhớ, ở phía trên, hiển thị mọi ghi chú trong một danh sách bạn có thể sửa, và một công tắc tắt việc AI tự lưu (nó vẫn đọc những ghi chú bạn giữ lại). Các ghi chú vẫn nằm trên máy tính của bạn, trong một file văn bản thuần duy nhất cùng với cài đặt của ứng dụng.
+- **Tự cập nhật.** Nút Kiểm tra cập nhật, ở dưới cùng cửa sổ, tìm phiên bản mới (nó cũng tự tìm mỗi ngày một lần khi đang chạy, bằng cách tải về một file nhỏ từ trang web của dự án; không có thông tin nào về bạn được gửi đi). Cập nhật ngay sẽ tải về, kiểm tra, rồi khởi động lại vào bản mới, giữ nguyên các mô hình, thư viện, file và cài đặt của bạn. Các thư viện mới hơn cũng được đề xuất ở đó.
+- **Dành cho tình huống khẩn cấp.** Khoảng 1,5 triệu bài viết (500.000 bài trong bản tải về nhỏ hơn): khoảng 930.000 bài được đọc nhiều nhất của Wikipedia, WikiMed, MedlinePlus, một cẩm nang thuốc của Anh, WikEM, Ready.gov, CDC, các cẩm nang sinh tồn và sơ cấp cứu của quân đội Mỹ và FEMA, cẩm nang đóng hộp của USDA, các tài liệu tham khảo về rủi ro để ước lượng micromort (bảng sinh mệnh, tỉ lệ tử vong ở Mỹ), wikiHow, iFixit, Appropedia, Energypedia và các mục hỏi đáp thực tiễn. Xem [SOURCES.md](SOURCES.md).
 
-## Install
+## Cài đặt
 
-Do this while you have internet. After that, it needs none. Setup takes 20 minutes to about 2½ hours, depending on
-your computer and internet speed (the biggest AI model is 80 GB); you only click for about 5 minutes.
+Hãy làm việc này khi bạn còn internet. Sau đó thì nó không cần internet nữa. Quá trình cài đặt mất từ 20 phút đến khoảng 2 tiếng rưỡi, tùy vào
+máy tính và tốc độ internet của bạn (mô hình AI lớn nhất nặng 80 GB); bạn chỉ phải bấm chuột khoảng 5 phút.
 
-**Mac** (Apple Silicon, macOS 14 Sonoma or newer)
-1. Download `Survival-LLM-mac.zip` and double-click it to unzip. Move **Survival LLM** to Applications if you like.
-2. Double-click **Survival LLM**. The first time, macOS says it can't verify the app, because it isn't sold through
-   Apple. Click **Done**, open **System Settings > Privacy & Security**, scroll down to "Survival LLM was blocked",
-   click **Open Anyway**, and confirm with your password. You only do this once.
+**Mac** (Apple Silicon, macOS 14 Sonoma hoặc mới hơn)
+1. Tải `Survival-LLM-mac.zip` rồi nhấp đôi vào nó để giải nén. Bạn có thể chuyển **Survival LLM** vào Applications nếu muốn.
+2. Nhấp đôi vào **Survival LLM**. Lần đầu tiên, macOS sẽ nói rằng nó không xác minh được ứng dụng, vì ứng dụng không được
+   bán qua Apple. Hãy nhấp **Done**, mở **System Settings > Privacy & Security**, cuộn xuống dòng "Survival LLM was blocked",
+   nhấp **Open Anyway**, rồi xác nhận bằng mật khẩu của bạn. Bạn chỉ phải làm việc này một lần.
 
-**Windows** (10 or 11, 64-bit)
-1. Download `Survival-LLM-windows.zip`, right-click it and choose **Extract All**. (Running it from inside the zip doesn't work.)
-2. Open the extracted **Survival LLM** folder and double-click **Survival LLM.bat**. If Windows says it protected
-   your PC, click **More info**, then **Run anyway**.
+**Windows** (10 hoặc 11, 64-bit)
+1. Tải `Survival-LLM-windows.zip`, nhấp chuột phải vào nó và chọn **Extract All**. (Chạy trực tiếp từ bên trong file zip sẽ không được.)
+2. Mở thư mục **Survival LLM** đã giải nén và nhấp đôi vào **Survival LLM.bat**. Nếu Windows nói rằng nó đã bảo vệ
+   máy của bạn, hãy nhấp **More info**, rồi **Run anyway**.
 
-**Then** the app opens in its own window and walks you through setup:
-1. **AI engine:** built into the Mac app. On Windows, one click downloads it (Ollama, 1.6 GB).
-2. **AI model:** it suggests the best one for your computer's memory (below) and downloads it.
-3. **Library:** "Everything" (8.8 GB download) or "Essentials" (1.3 GB, without Wikipedia and iFixit).
+**Sau đó** ứng dụng mở ra trong cửa sổ riêng và hướng dẫn bạn qua các bước cài đặt:
+1. **Bộ máy AI:** đã có sẵn trong ứng dụng Mac. Trên Windows, một lần nhấp là tải được nó về (Ollama, 1.6 GB).
+2. **Mô hình AI:** nó đề xuất mô hình tốt nhất cho bộ nhớ của máy bạn (bên dưới) và tải mô hình đó về.
+3. **Thư viện:** "Everything" (tải về 8.8 GB) hoặc "Essentials" (1.3 GB, không có Wikipedia và iFixit).
 
-**Free disk space needed:** the model's size plus 5 GB, plus about 27 GB while the full library installs
-(21 GB once installed), or about 10 GB for Essentials (3 GB once installed).
+**Dung lượng đĩa trống cần có:** kích thước của mô hình cộng 5 GB, cộng khoảng 27 GB trong lúc cài thư viện đầy đủ
+(21 GB sau khi cài xong), hoặc khoảng 10 GB cho bản Essentials (3 GB sau khi cài xong).
 
-## Uninstall
+## Gỡ cài đặt
 
-Delete the app, then these folders: the AI models, in `~/.ollama/models` (shared with any other Ollama on the
-computer, so keep it if you use Ollama elsewhere), and the library, in `~/Survival LLM Library`. Your own files are in
-`~/Survival LLM Files`; keep that folder if you want them. The app's own
-settings are in `~/Library/Application Support/Survival LLM` on a Mac, and in `%APPDATA%\Survival LLM` plus the
-AI engine in `%LOCALAPPDATA%\Survival LLM` on Windows.
+Hãy xóa ứng dụng, rồi xóa các thư mục sau: các mô hình AI, ở `~/.ollama/models` (dùng chung với bất kỳ Ollama nào khác trên
+máy, nên hãy giữ lại nếu bạn dùng Ollama cho việc khác), và thư viện, ở `~/Survival LLM Library`. Các file của riêng bạn nằm ở
+`~/Survival LLM Files`; hãy giữ thư mục đó nếu bạn còn muốn chúng. Cài đặt của riêng ứng dụng
+nằm ở `~/Library/Application Support/Survival LLM` trên Mac, và ở `%APPDATA%\Survival LLM` cộng với
+bộ máy AI ở `%LOCALAPPDATA%\Survival LLM` trên Windows.
 
-## Which model your computer gets
+## Máy tính của bạn được mô hình nào
 
-The app checks your memory and suggests a model. More memory, smarter model.
+Ứng dụng kiểm tra bộ nhớ của bạn và đề xuất một mô hình. Càng nhiều bộ nhớ, mô hình càng thông minh.
 
-| Your computer | Model | Download |
+| Máy tính của bạn | Mô hình | Dung lượng tải |
 |---|---|---|
-| Mac with 128 GB or more | NVIDIA Nemotron 3.5 Super (`nemotron-3.5-super:120b-a12b-nvfp4`) | 80 GB |
-| Mac or PC with 32 GB or more (PC: ideally a 12 GB graphics card) | Qwen3.6 35B-A3B (`hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`, this fork) | 23 GB |
-| Mac with 32-96 GB | Qwen3.8 27B (`qwen3.8:27b-mlx`) | 18 GB |
-| Windows PC with 32 GB or more | NVIDIA Nemotron 3.5 Lightning (`nemotron-3.5-lightning:30b-a3b`) | 25 GB |
-| Mac or PC with 16-31 GB | IBM Granite 4.2 8B (`granite4.2:8b`) | 6 GB |
+| Mac có 128 GB hoặc hơn | NVIDIA Nemotron 3.5 Super (`nemotron-3.5-super:120b-a12b-nvfp4`) | 80 GB |
+| Mac hoặc PC có 32 GB hoặc hơn (PC: lý tưởng là card đồ họa 12 GB) | Qwen3.6 35B-A3B (`hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL`, bản fork này) | 23 GB |
+| Mac có 32-96 GB | Qwen3.8 27B (`qwen3.8:27b-mlx`) | 18 GB |
+| PC Windows có 32 GB hoặc hơn | NVIDIA Nemotron 3.5 Lightning (`nemotron-3.5-lightning:30b-a3b`) | 25 GB |
+| Mac hoặc PC có 16-31 GB | IBM Granite 4.2 8B (`granite4.2:8b`) | 6 GB |
 
-Nemotron Super needs 128 GB because macOS lets the graphics side use only about three quarters of memory.
+Nemotron Super cần 128 GB vì macOS chỉ cho phía đồ họa dùng khoảng ba phần tư bộ nhớ.
 
-Gemma 4 E4B (`gemma4`, 10 GB) is offered as a faster option for 16 GB computers. Computers with 8 GB can
-still search the library; no model we tested was both small enough and safe enough to recommend for them.
+Gemma 4 E4B (`gemma4`, 10 GB) được đề xuất như một lựa chọn nhanh hơn cho các máy 16 GB. Những máy có 8 GB vẫn
+có thể tìm trong thư viện; không có mô hình nào chúng tôi thử vừa đủ nhỏ lại vừa đủ an toàn để đề xuất cho chúng.
 
-## How the models did
+## Các mô hình làm được đến đâu
 
-Each model answered 22 blackout and first-aid questions (food, generators, water, carbon monoxide,
-hypothermia, bleeding, burns, insulin, downed lines, fallout, botulism and more) using the full app: its
-prompt, tools and library search. Independent AI judges then graded every answer blind (model names hidden,
-order shuffled) against official guidance from USDA, CDC, FEMA, EPA, NHS, WHO and the Red Cross: one judge
-for accuracy, one for safety, and a skeptic who re-checked every answer flagged as harmful.
+Mỗi mô hình trả lời 22 câu hỏi về mất điện và sơ cấp cứu (thực phẩm, máy phát điện, nước, khí carbon monoxide,
+hạ nhiệt độ cơ thể, chảy máu, bỏng, insulin, đường dây điện bị đứt rơi, bụi phóng xạ, ngộ độc botulinum và nhiều nữa) bằng
+toàn bộ ứng dụng: prompt, các tool và chức năng tìm kiếm thư viện của nó. Sau đó các giám khảo AI độc lập chấm mù mọi câu trả lời
+(tên mô hình được che, thứ tự được đảo) dựa trên hướng dẫn chính thức của USDA, CDC, FEMA, EPA, NHS, WHO và Hội Chữ thập đỏ: một giám khảo
+cho độ chính xác, một cho độ an toàn, và một người phản biện kiểm tra lại mọi câu trả lời bị đánh dấu là có hại.
 
-How these numbers were measured, plainly: the tests ran on an earlier build of the library, before Wikipedia
-was added, which also held some material that isn't in the public downloads (the Kiwix "zimgit" collections and
-MedlinePlus's licensed encyclopedia and drug pages; 1 to 10 answers per model read one of those). The app's
-instructions have also gained rules since: the carbon monoxide rule and "always give your best estimate". Treat
-the table as a comparison between models, not a guarantee for the version you download.
+Nói thẳng về cách đo các con số này: các bài kiểm tra chạy trên một bản build cũ hơn của thư viện, trước khi Wikipedia
+được thêm vào, bản đó cũng chứa một số tài liệu không có trong các bản tải về công khai (các bộ sưu tập "zimgit" của Kiwix và
+các trang bách khoa toàn thư cùng trang thuốc có bản quyền của MedlinePlus; mỗi mô hình có từ 1 đến 10 câu trả lời đã đọc một trong số đó). Phần
+hướng dẫn của ứng dụng từ đó cũng có thêm các quy tắc mới: quy tắc về khí carbon monoxide và "luôn đưa ra ước lượng tốt nhất của bạn". Hãy xem
+bảng này như một phép so sánh giữa các mô hình, không phải một lời bảo đảm cho phiên bản bạn tải về.
 
-| Model | Accuracy | Main point right | Harmful answers | Seconds per answer* |
+| Mô hình | Độ chính xác | Đúng ý chính | Câu trả lời có hại | Số giây mỗi câu trả lời* |
 |---|---|---|---|---|
-| Nemotron 3.5 Super | 86% | 21 of 22 | 0 | 12 |
-| Qwen3.8 27B | 80% | 21 of 22 | 0 | 40 |
-| Nemotron 3.5 Lightning | 77% | 19 of 22 | 1 | 8 |
-| Qwen 3.6 (36B MoE) | 59% | 15 of 22 | 1 | 24 |
-| Granite 4.2 8B | 55% | 14 of 22 | 0 | 29 |
-| Granite 4.2 30B | 55% | 11 of 22 | 2 | 55 |
-| Gemma 4 E4B | 48% | 11 of 22 | 0 | 3 |
-| Granite 4.2 3B | 44% | 8 of 22 | 5 (2 could kill) | 12 |
+| Nemotron 3.5 Super | 86% | 21 trên 22 | 0 | 12 |
+| Qwen3.8 27B | 80% | 21 trên 22 | 0 | 40 |
+| Nemotron 3.5 Lightning | 77% | 19 trên 22 | 1 | 8 |
+| Qwen 3.6 (36B MoE) | 59% | 15 trên 22 | 1 | 24 |
+| Granite 4.2 8B | 55% | 14 trên 22 | 0 | 29 |
+| Granite 4.2 30B | 55% | 11 trên 22 | 2 | 55 |
+| Gemma 4 E4B | 48% | 11 trên 22 | 0 | 3 |
+| Granite 4.2 3B | 44% | 8 trên 22 | 5 (2 câu có thể gây chết người) | 12 |
 
-\* On an M4 Max MacBook Pro (128 GB), Ollama 0.40.9. Qwen3.8 27B was tested as mlx-community's 4-bit build
-(`local-ai2` in `evals/results`); the app downloads Ollama's NVFP4 build of the same model. Nemotron Super appears
-there as `local-ai1` (the same model with the app's settings). Windows downloads a different file of Nemotron
-Lightning (Q4_K_M) than the Mac build tested here. Accuracy is the share of points on a 0-3 scale per answer; "harmful"
-means following it could hurt someone. Granite 4.2 3B, first planned for 8 GB computers, is not offered: it
-told people not to use a tourniquet on an arm and to stay 3 feet from a downed power line (the guidance is 35).
-Qwen 3.6 is not offered either: it got stuck repeating itself on two questions (once for 94 minutes),
-which is also why answers have a length limit (you can change it, or turn it off, next to Send).
+\* Trên một MacBook Pro M4 Max (128 GB), Ollama 0.40.9. Qwen3.8 27B được thử ở bản build 4-bit của mlx-community
+(`local-ai2` trong `evals/results`); ứng dụng tải về bản build NVFP4 của Ollama cho cùng mô hình đó. Nemotron Super xuất hiện
+ở đó dưới tên `local-ai1` (cùng mô hình đó với cấu hình của ứng dụng). Windows tải về một file khác của Nemotron
+Lightning (Q4_K_M) so với bản Mac được thử ở đây. Độ chính xác là tỉ lệ điểm đạt được trên thang 0-3 cho mỗi câu trả lời; "có hại"
+nghĩa là làm theo nó có thể gây tổn thương cho người khác. Granite 4.2 3B, ban đầu dự định cho các máy 8 GB, không được đề xuất: nó
+bảo người ta không dùng dây garô cho cánh tay và chỉ đứng cách đường dây điện bị đứt rơi 3 feet (hướng dẫn là 35).
+Qwen 3.6 cũng không được đề xuất: nó bị mắc vào vòng lặp tự nhắc lại ở hai câu hỏi (một lần kéo dài 94 phút),
+đó cũng là lý do các câu trả lời có hạn mức độ dài (bạn có thể đổi nó, hoặc tắt nó, ở cạnh nút Gửi).
 
-The tests found and fixed two problems for every model: some kept looking things up until they ran out of
-lookups and never answered (now they are told to answer from what they read), and several gave "if you
-must" exceptions for running cars and generators near the house (the prompt now rules those out).
-Reproduce with `evals/retrieval_eval.py`, `evals/make_judging_batches.py` and `evals/score_judging.py`;
-answers are in `evals/results/`, grades in `evals/judging/`.
+Các bài kiểm tra đã tìm ra và sửa được hai vấn đề cho mọi mô hình: một số mô hình cứ tra cứu mãi cho đến khi hết lượt
+tra cứu mà không bao giờ trả lời (giờ chúng được yêu cầu trả lời bằng những gì đã đọc), và vài mô hình đưa ra các ngoại lệ kiểu "nếu
+bắt buộc phải làm" cho việc chạy xe hơi và máy phát điện gần nhà (prompt giờ đã loại bỏ hẳn những trường hợp đó).
+Để chạy lại, dùng `evals/retrieval_eval.py`, `evals/make_judging_batches.py` và `evals/score_judging.py`;
+các câu trả lời nằm ở `evals/results/`, điểm chấm nằm ở `evals/judging/`.
 
-**Made-up sources.** Each answer ends with the model's own "Sources:" line, and its instructions say the app shows
-every article it opened. Models name sources they never saw anyway. In a separate test of 14 questions
-(`evals/citation_check.py`, October 24 2026), these answers named a source the model had neither opened nor seen in
-its search results: Nemotron Super 6 (mostly answering from memory and naming Ready.gov or the CDC), Lightning 3,
-Gemma 3, Granite 2 and Qwen3.8 27B 1. So the app checks that line against what the model opened or saw, and replaces
-a line that names anything else with the list of articles it actually read.
+**Nguồn bị bịa ra.** Mỗi câu trả lời kết thúc bằng dòng "Sources:" của chính mô hình, và phần hướng dẫn của nó nói rằng ứng dụng hiển thị
+mọi bài viết mà nó đã mở. Dù vậy các mô hình vẫn nêu tên những nguồn chúng chưa từng xem. Trong một bài kiểm tra riêng gồm 14 câu hỏi
+(`evals/citation_check.py`, ngày 24 tháng 10 năm 2026), số câu trả lời nêu tên một nguồn mà mô hình vừa không mở lại vừa không thấy trong
+kết quả tìm kiếm của nó là: Nemotron Super 6 câu (phần lớn là trả lời từ ký ức rồi nêu tên Ready.gov hay CDC), Lightning 3 câu,
+Gemma 3 câu, Granite 2 câu và Qwen3.8 27B 1 câu. Nên ứng dụng kiểm tra dòng đó so với những gì mô hình đã mở hoặc đã thấy, và thay
+một dòng nêu tên bất cứ thứ gì khác bằng danh sách những bài viết nó thực sự đã đọc.
 
-## How it works
+### Kết quả đo của bản fork
+
+Đây là **điểm fact-check tự động** (script eval `evals/retrieval_eval.py`, 22 câu), **chưa** phải điểm chấm mù
+về độ an toàn như bảng ở trên — nên đừng đọc nó như một lời bảo đảm về độ an toàn. Đây là lần chạy với
+**thư viện lite**, dùng Qwen3.6-35B-A3B `UD-Q4_K_XL` qua Ollama trên RTX 3080 Ti 12 GB + 64 GB RAM.
+Lần chạy với thư viện đầy đủ (8.8 GB) **đang chạy**.
+
+| Chỉ số | Qwen3.6-35B-A3B UD-Q4_K_XL (thư viện lite, bản fork này) | Qwen 3.6 của dự án gốc |
+|---|---|---|
+| Điểm fact | 0.902 | 0.856 |
+| Có đủ mọi ý chính | 17/22 | 16/22 |
+
+Các số liệu còn lại của lần chạy này: đã tìm kiếm 22/22, đã đọc bài 15/22, có liên quan 16/22, có trích dẫn 20/22,
+trung bình 30.2 giây mỗi câu, 46.2 token/giây. Không lần nào bị lặp: không câu nào mắc vào vòng lặp tự nhắc lại
+như Qwen 3.6 ở bảng trên, câu chậm nhất chỉ mất 65 giây.
+
+Kết quả thô ở `evals/results/qwen36-a3b-lite/`. Dòng Qwen 3.6 của dự án gốc lấy từ
+`evals/results/summary.jsonl` (mô hình `qwen3.6`).
+
+## Nó hoạt động thế nào
 
 ```
 your question ─► local model (Ollama) ─► search_library ─► SQLite full-text index ─► passages
@@ -135,14 +156,14 @@ your question ─► local model (Ollama) ─► search_library ─► SQLite fu
                         └──── answer with "Sources:" ◄──┘   show_article ─► opens it on screen
 ```
 
-- `app/server.py` serves the chat page on `127.0.0.1` only and runs each turn through `core.py`.
-- `core.py` streams the model's answer and runs its library tools: `search_library`, `read_article`, `show_article`.
-- `library/search.py` searches `index.sqlite` (FTS5, BM25 ranking over ~1,500-character passages, official sources ranked higher) and reads the plain-text Markdown shards.
-- `memory.py` keeps the AI's notes about the person (`survival-llm-memory.txt`, with the app's settings) and, while the person allows it, `core.py` gives the model one short extra turn after answers to messages about the person or their family, to say what to remember, change or forget (a JSON reply the app checks and applies). The notes, today's date and the names of the person's files are added after the instructions when a chat starts.
-- `library/myfiles.py` reads the person's own files into a small index of their own (kept with the app's settings) and searches it together with the library.
-- Everything except Ollama, the app window (pywebview), PDF reading (pypdf) and checking web certificates with the system's own store (truststore) is the Python standard library.
+- `app/server.py` phục vụ trang chat chỉ trên `127.0.0.1` và đưa mỗi lượt trò chuyện qua `core.py`.
+- `core.py` truyền phát câu trả lời của mô hình và chạy các tool thư viện của nó: `search_library`, `read_article`, `show_article`.
+- `library/search.py` tìm trong `index.sqlite` (FTS5, xếp hạng BM25 trên các đoạn văn khoảng 1.500 ký tự, nguồn chính thức được xếp hạng cao hơn) và đọc các shard Markdown văn bản thuần.
+- `memory.py` giữ các ghi chú của AI về người dùng (`survival-llm-memory.txt`, nằm cùng cài đặt của ứng dụng) và, trong khi người dùng còn cho phép, `core.py` cho mô hình thêm một lượt ngắn sau các câu trả lời cho những tin nhắn nói về người dùng hoặc gia đình họ, để nói xem cần nhớ, sửa hay quên điều gì (một phản hồi JSON mà ứng dụng kiểm tra rồi áp dụng). Các ghi chú, ngày hôm nay và tên các file của người dùng được thêm vào sau phần hướng dẫn khi một cuộc trò chuyện bắt đầu.
+- `library/myfiles.py` đọc các file của riêng người dùng vào một chỉ mục riêng nhỏ (giữ cùng cài đặt của ứng dụng) và tìm trong đó cùng với thư viện.
+- Mọi thứ, trừ Ollama, cửa sổ ứng dụng (pywebview), phần đọc PDF (pypdf) và phần kiểm tra chứng chỉ web bằng kho chứng chỉ của hệ thống (truststore), đều là thư viện chuẩn của Python.
 
-## Run from source
+## Chạy từ mã nguồn
 
 ```bash
 python3 app/server.py          # the app in its own window (needs `pip install pywebview pypdf truststore`; else it uses your browser)
@@ -150,14 +171,14 @@ python3 app/server.py --browser                     # in your web browser instea
 python3 chat.py "How long is fridge food safe in a blackout?"   # terminal; --model NAME picks a model
 ```
 
-The library is looked up at `$SURVIVAL_LLM_LIBRARY`, then `~/Survival LLM Library`, then `library.noindex/` next to the code.
-Without a built-in engine, the app uses an Ollama you have installed (`ollama serve`).
+Thư viện được tìm ở `$SURVIVAL_LLM_LIBRARY`, rồi `~/Survival LLM Library`, rồi `library.noindex/` nằm cạnh mã nguồn.
+Khi không có bộ máy sẵn bên trong, ứng dụng dùng bản Ollama bạn đã cài (`ollama serve`).
 
-`python3 tests/run_all.py` checks memory and the handling of what models write (forget requests, notes about different
-people, Sources lines), with a stand-in for the model: no Ollama or library needed. Run it after changing `memory.py` or
-`core.py`, and `evals/memory_eval.py --step MODEL ...` to see how real models do.
+`python3 tests/run_all.py` kiểm tra bộ nhớ và việc xử lý những gì mô hình viết ra (yêu cầu quên, ghi chú về những
+người khác nhau, các dòng Sources), với một bản giả lập thay cho mô hình: không cần Ollama hay thư viện. Hãy chạy nó sau khi sửa `memory.py` hoặc
+`core.py`, và chạy `evals/memory_eval.py --step MODEL ...` để xem các mô hình thật làm được đến đâu.
 
-## Try changes as the Mac app
+## Thử các thay đổi dưới dạng ứng dụng Mac
 
 ```bash
 bin/dev              # "Survival LLM Dev": the Mac app running the code in this folder (restarts it if it's open)
@@ -166,14 +187,14 @@ bin/dev --release    # build the Mac app exactly as it ships (packaging/build.sh
 bin/dev stop         # quit it; bin/dev reset deletes its settings, memory and files; bin/dev log follows its log
 ```
 
-Survival LLM Dev is built once into `~/Applications` (`--rebuild` builds it again) with the same Python, pywebview and
-Ollama as the real app, but its code is a link to this folder, so every start runs the code as it is then; Spotlight
-opens it too. It keeps its own settings, memory and files in `~/Library/Application Support/Survival LLM Dev`, so an
-installed Survival LLM is left alone, and it shares the library and the AI models. A Dev badge and the line at the
-bottom of the window name the branch and commit it runs, and it never updates itself. Its log is
+Survival LLM Dev được build một lần vào `~/Applications` (`--rebuild` build lại nó) với cùng Python, pywebview và
+Ollama như ứng dụng thật, nhưng mã nguồn của nó là một liên kết tới thư mục này, nên mỗi lần khởi động đều chạy mã nguồn ở trạng thái lúc đó; Spotlight
+cũng mở được nó. Nó giữ cài đặt, bộ nhớ và file riêng của mình trong `~/Library/Application Support/Survival LLM Dev`, nên một bản
+Survival LLM đã cài sẽ không bị ảnh hưởng, và nó dùng chung thư viện cùng các mô hình AI. Một nhãn Dev và dòng chữ ở
+dưới cùng cửa sổ cho biết nó đang chạy nhánh và commit nào, và nó không bao giờ tự cập nhật. Log của nó là
 `~/Library/Logs/Survival LLM Dev.log`.
 
-## Build the library
+## Build thư viện
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install libzim lxml trafilatura
@@ -185,11 +206,11 @@ curl -L -o library.noindex/raw/wikihowAll.csv \
 .venv/bin/python library/build_library.py      # plain text + index in library.noindex/
 ```
 
-`build_library.py` is incremental (finished sources are skipped) and `--rebuild KEY ...` redoes sources.
-It needs `pdftotext` (poppler) for the PDF manuals.
+`build_library.py` build theo kiểu tăng dần (các nguồn đã xong sẽ được bỏ qua) và `--rebuild KEY ...` làm lại các nguồn.
+Nó cần `pdftotext` (poppler) cho các cẩm nang PDF.
 
-**A default build is for your own use only:** it includes material that may not be shared (see SOURCES.md).
-To build the shareable downloads:
+**Một bản build mặc định chỉ dành cho việc dùng riêng của bạn:** nó chứa tài liệu có thể không được phép chia sẻ (xem SOURCES.md).
+Để build các bản tải về có thể chia sẻ được:
 
 ```bash
 LIBRARY_OUT=dist/library-full .venv/bin/python library/build_library.py --public
@@ -198,9 +219,9 @@ python3 packaging/make_packs.py --base-url https://github.com/OWNER/survival-llm
   lite=dist/library-lite full=dist/library-full   # parts for the release + library-packs.json for docs/
 ```
 
-Packs carry a date (`--version`, default today); installed copies offer a pack with a newer date as an update.
+Các pack có kèm ngày (`--version`, mặc định là hôm nay); các bản đã cài sẽ đề xuất một pack có ngày mới hơn như một bản cập nhật.
 
-## Package the apps
+## Đóng gói ứng dụng
 
 ```bash
 packaging/build.sh     # dist/Survival-LLM-mac.zip and dist/Survival-LLM-windows.zip (needs Xcode's command-line tools)
@@ -208,14 +229,14 @@ gh release create "v$(cat packaging/VERSION)" dist/Survival-LLM-mac.zip dist/Sur
 python3 packaging/make_update.py "What's new" "..."   # writes docs/update.json; publish docs/ afterwards
 ```
 
-Set the version in `packaging/VERSION` first. Installed copies read `docs/update.json` from the project's web page,
-download the zip for their system, check its size and SHA-256, and replace themselves with it.
+Hãy đặt số phiên bản trong `packaging/VERSION` trước. Các bản đã cài đọc `docs/update.json` từ trang web của dự án,
+tải về file zip cho hệ thống của mình, kiểm tra kích thước và SHA-256 của nó, rồi tự thay thế chính mình bằng bản đó.
 
-The Mac app bundles a portable Python, pywebview for its window, and Ollama. The Windows app bundles Python and
-pywebview and downloads Ollama on first use (it is 1.6 GB with its graphics-card libraries).
+Ứng dụng Mac đóng gói kèm một bản Python di động, pywebview cho cửa sổ của nó, và Ollama. Ứng dụng Windows đóng gói kèm Python và
+pywebview rồi tải Ollama về khi dùng lần đầu (nó nặng 1.6 GB kèm theo các thư viện card đồ họa).
 
-## License
+## Giấy phép
 
-Code: MIT ([LICENSE](LICENSE)). Library content keeps the license of its source ([SOURCES.md](SOURCES.md)).
+Mã nguồn: MIT ([LICENSE](LICENSE)). Nội dung thư viện giữ giấy phép của nguồn gốc ([SOURCES.md](SOURCES.md)).
 
-AI models make mistakes. Every answer shows its sources so you can check.
+Các mô hình AI vẫn mắc lỗi. Mỗi câu trả lời đều hiển thị nguồn của nó để bạn có thể kiểm tra.

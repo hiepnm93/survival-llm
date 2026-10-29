@@ -1,0 +1,1 @@
+{"model": "qwen3.6-35b-a3b-q4kxl", "tools": true, "load_secs": 4.6, "facts": 0.902, "all_facts": 17, "searched": 22, "read": 15, "relevant": 16, "cited": 20, "notes_saved": 0, "memory": false, "avg_secs": 30.2, "tok_s": 46.2, "n": 22}
