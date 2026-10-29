@@ -141,9 +141,9 @@ về độ an toàn như bảng ở trên — nên đừng đọc nó như một
 | Có đủ mọi ý chính | 17/22 | **19/22** | 16/22 |
 | Đã tìm kiếm | 22/22 | 22/22 | 22/22 |
 | Đã đọc bài | 15/22 | 19/22 | 14/22 |
-| Có liên quan | 16/22 | 19/22 | — |
-| Có trích dẫn | 20/22 | 22/22 | — |
-| Giây mỗi câu (trung bình) | 30.2 | 33.7 | — |
+| Có liên quan | 16/22 | 19/22 | 19/22 |
+| Có trích dẫn | 20/22 | 22/22 | 18/22 |
+| Giây mỗi câu (trung bình) | 30.2 | 33.7 | 275.1 (có vòng lặp) |
 | Câu chậm nhất | 65 s | 61 s | — |
 
 Tốc độ sinh 46.2 token/giây ở cả hai lần. Không lần nào bị lặp: không câu nào mắc vào vòng lặp tự nhắc lại
