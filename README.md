@@ -183,6 +183,26 @@ với tiêu đề. Có thể bật thêm bước xếp lại bằng embedding qu
 (5) **tự kiểm tra**: với câu hỏi về mối nguy, một lệnh gọi ngắn không dùng tool so câu trả lời với thẻ, rồi thay câu
 trả lời bằng bản đã sửa nếu nó sai. Kết quả chấm mù: xem dòng ‡ trong bảng ở trên.
 
+**Kiểm tra trên 20 câu mới (held-out).** 22 câu ở trên đã được dùng khi viết thẻ an toàn, nên điểm trên chúng dễ bị
+lạc quan. `evals/heldout.py` có 20 câu mới (rắn cắn, rò gas, hóc dị vật, động đất, sét, ống nước đóng băng, đồ ăn
+cho trẻ…) mà cả hai bản đều chưa thấy. Chạy cùng mô hình và thư viện đầy đủ, rồi chấm mù như bảng trên:
+
+| Chỉ số (20 câu held-out) | Trước khi vá (`8555a04`) | Nhánh `safety-retrieval` |
+|---|---|---|
+| Độ chính xác (chấm mù) | 83% | **87%** |
+| Câu đạt điểm tối đa 3/3 | 11 | **12** |
+| Câu trả lời có hại nếu làm theo | 2 | **0** |
+| Câu có thể gây chết người | 0 | 0 |
+| Điểm fact tự động | **0.954** | 0.938 |
+| Có trích dẫn | 13/20 | **18/20** |
+| Giây mỗi câu | 32.6 | 30.0 |
+
+Hai câu có hại của bản cũ: chỉ cảnh báo không dùng đèn khò khi rã đông ống **nhựa**, nên người có ống đồng có thể
+dùng lửa (nguyên nhân cháy nhà thường gặp); và để đồ ăn trẻ em ở nhiệt độ phòng 8 giờ, gấp đôi đến gấp bốn giới hạn
+của CDC. Bản mới có một lỗi nhỏ (bóp ve bằng móng tay), không gây hại. Với 20 câu, chênh lệch độ chính xác còn nằm
+trong mức nhiễu; điều rõ rệt là không còn câu trả lời có hại và trích dẫn nhiều hơn. Kết quả thô ở
+`evals/results/heldout/`, phiếu chấm ở `evals/judging/heldout/`.
+
 ## Nó hoạt động thế nào
 
 ```
