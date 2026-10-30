@@ -1,6 +1,6 @@
 """Write the retrieval-test answers into batch files for independent AI judges.
 
-Usage: python3 evals/make_judging_batches.py [--changed [N]]
+Usage: python3 evals/make_judging_batches.py [--changed [N]] [--heldout]
 Reads evals/results/*.jsonl (from retrieval_eval.py) and writes evals/judging/batch-N.md: for each
 question, the official guidance it should match, then every model's answer and the sources it read.
 Judging is blind: answers appear as "Answer A, B, ..." in a different order for each question, and
@@ -8,6 +8,8 @@ evals/judging/key.json maps each label back to its model.
 --changed writes only the answers listed in evals/judging/changed.json (rerun after a harness fix) to
 rejudge-B.md and key-rejudge.json, so just those get judged again; --changed N uses changed-N.json and writes
 rejudge-N-B.md and key-rejudge-N.json (a later round).
+--heldout does the same for the held-out questions (heldout.py): reads evals/results/heldout/*.jsonl, uses its GOLD
+and writes to evals/judging/heldout/.
 """
 import json
 import os
@@ -44,12 +46,16 @@ GOLD = [
 ]
 
 
-def main(only_changed=False, round_tag=""):
-    from retrieval_eval import QUESTIONS  # same order as GOLD
+def main(only_changed=False, round_tag="", heldout=False):
+    if heldout:
+        from heldout import GOLD as gold, HELDOUT as QUESTIONS
+    else:
+        from retrieval_eval import QUESTIONS  # same order as GOLD
+        gold = GOLD
     changed = None
     if only_changed:
         changed = {(c["model"], c["q"]) for c in json.load(open(os.path.join(OUT, f"changed{round_tag}.json")))}
-    assert len(QUESTIONS) == len(GOLD)
+    assert len(QUESTIONS) == len(gold)
     answers = {}  # question -> [(model, answer, read titles)]
     for name in sorted(os.listdir(RESULTS)):
         if not name.endswith(".jsonl") or name == "summary.jsonl":
@@ -65,10 +71,12 @@ def main(only_changed=False, round_tag=""):
             read = [e["title"] for e in r["events"] if e["type"] in ("read", "show")]
             answers.setdefault(r["q"], []).append((model, r["answer"], read))
     os.makedirs(OUT, exist_ok=True)
+    total = len(QUESTIONS)
     if not only_changed:
-        batches = [range(0, 6), range(6, 12), range(12, 17), range(17, 22)]
+        batches = [range(0, 5), range(5, 10), range(10, 15), range(15, 20)] if heldout else \
+            [range(0, 6), range(6, 12), range(12, 17), range(17, 22)]
     else:
-        batches = [range(0, 22)] if len(changed) <= 12 else [range(0, 11), range(11, 22)]
+        batches = [range(0, total)] if len(changed) <= 12 else [range(0, total // 2), range(total // 2, total)]
     prefix = f"rejudge{round_tag}" if only_changed else "batch"
     rng = random.Random(0)  # same shuffle every run, so key.json stays valid
     key = {}
@@ -78,7 +86,7 @@ def main(only_changed=False, round_tag=""):
             q = QUESTIONS[i]["q"]
             if not answers.get(q):
                 continue
-            lines += [f"## Question {i}: {q}", "", f"**Official guidance:** {GOLD[i]}", ""]
+            lines += [f"## Question {i}: {q}", "", f"**Official guidance:** {gold[i]}", ""]
             shuffled = answers.get(q, [])[:]
             rng.shuffle(shuffled)
             for n, (model, answer, read) in enumerate(shuffled):
@@ -97,5 +105,9 @@ if __name__ == "__main__":
     import sys
     sys.path.insert(0, ROOT)
     args = sys.argv[1:]
+    heldout = "--heldout" in args
+    if heldout:
+        args.remove("--heldout")
+        RESULTS, OUT = os.path.join(RESULTS, "heldout"), os.path.join(OUT, "heldout")
     tag = f"-{args[args.index('--changed') + 1]}" if "--changed" in args and args.index("--changed") + 1 < len(args) else ""
-    main(only_changed="--changed" in args, round_tag=tag)
+    main(only_changed="--changed" in args, round_tag=tag, heldout=heldout)

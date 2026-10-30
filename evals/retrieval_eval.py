@@ -1,9 +1,10 @@
 """Retrieval test: ask a model 22 blackout / first-aid questions with the library and grade the answers.
 
-Usage: .venv/bin/python evals/retrieval_eval.py [--rest SECONDS] [--memory] MODEL [MODEL ...]
+Usage: .venv/bin/python evals/retrieval_eval.py [--rest SECONDS] [--memory] [--heldout] MODEL [MODEL ...]
 An interrupted run picks up where it stopped. --rest pauses between questions so the fans stay quieter.
 --memory runs with the app's memory on (empty notes, saving allowed) and counts notes saved; answers go to
-evals/results/with-memory/ instead.
+evals/results/with-memory/ instead. --heldout asks the 20 questions in heldout.py instead (topics the safety cards
+were not written from); answers and summary go to evals/results/heldout/.
 Grades each answer against facts from official guidance (USDA, CDC, FEMA, WHO, NHS), and records
 whether the model searched, read a relevant article and cited it. Answers go to evals/results/.
 """
@@ -113,7 +114,7 @@ def warm_up(model):
 def run(model):
     library, caps = Library(), capabilities(model)
     load = warm_up(model)
-    out_dir = os.path.join(ROOT, "evals", "results", *(["with-memory"] if MEMORY else []))
+    out_dir = os.path.join(RESULTS, *(["with-memory"] if MEMORY else []))
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, model.replace(":", "_").replace("/", "_") + ".jsonl")
     tmp = tempfile.TemporaryDirectory() if MEMORY else None
@@ -182,7 +183,7 @@ def run(model):
 
 def regrade():
     """Re-score saved answers with the current grader (no model calls)."""
-    out_dir = os.path.join(ROOT, "evals", "results", *(["with-memory"] if MEMORY else []))
+    out_dir = os.path.join(RESULTS, *(["with-memory"] if MEMORY else []))
     by_q = {item["q"]: item for item in QUESTIONS}
     for name in sorted(os.listdir(out_dir)):
         if not name.endswith(".jsonl") or name == "summary.jsonl":
@@ -200,6 +201,7 @@ def regrade():
 
 REST = 0  # seconds to pause between questions; set with --rest N
 MEMORY = False  # --memory
+RESULTS = os.path.join(ROOT, "evals", "results")  # evals/results/heldout with --heldout
 
 
 if __name__ == "__main__":
@@ -211,6 +213,10 @@ if __name__ == "__main__":
     if "--memory" in args:
         MEMORY = True
         args.remove("--memory")
+    if "--heldout" in args:
+        from heldout import HELDOUT as QUESTIONS  # evals/ is on the path when run as a script
+        RESULTS = os.path.join(RESULTS, "heldout")
+        args.remove("--heldout")
     if args == ["--regrade"]:
         regrade()
     for m in (a for a in args if a != "--regrade"):
