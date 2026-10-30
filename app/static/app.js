@@ -556,6 +556,7 @@ async function ask(text) {
         row("Limit", "r-step").textContent = said;
       } else if (ev.type === "retry") {
         note(ev.why === "search" ? "It answered from memory, so it was asked to search the library, as you asked."
+          : ev.why === "read" ? "Official guidance matched, so it was asked to read library articles too before answering."
           : "It hadn't written an answer, so it was given the best articles it found and asked again.");
       } else if (ev.type === "card") note(`Official guidance: ${ev.title} · ${ev.source}`);
       else if (ev.type === "safety_fix") {  // the answer went against official guidance, so it was corrected

@@ -70,8 +70,8 @@ def run_turn(model, library, messages, level, caps, length="normal"):
             print(f"{DIM}  · its thinking reached the limit; answering from what it has{RESET}", flush=True)
             reasoning.append("· thinking reached the limit")
         elif kind == "retry":
-            print(f"{DIM}  · {'asked to search, as you asked' if ev.get('why') == 'search' else 'answering from the articles it found'}"
-                  f"{RESET}", flush=True)
+            why = {"search": "asked to search, as you asked", "read": "asked to read the library before answering"}
+            print(f"{DIM}  · {why.get(ev.get('why'), 'answering from the articles it found')}{RESET}", flush=True)
         elif kind == "card":
             print(f"{DIM}  · official guidance: {ev['title']} ({ev['source']}){RESET}", flush=True)
         elif kind == "safety_fix":

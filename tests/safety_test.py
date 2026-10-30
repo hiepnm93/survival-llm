@@ -89,6 +89,7 @@ def fake_stream(model, messages, tools, think, options):
 
 
 core._stream = fake_stream
+core.MIN_READS_WITH_CARDS = 0  # this fake library has nothing to read: tests/answer_quality_test.py asks it to read
 
 
 def ask(q):
@@ -121,9 +122,11 @@ check_reply[0] = "**Corrected answer:** " + FIX
 evs, messages, done = ask(POWER)
 check("a 'Corrected answer:' label is dropped", done["answer"].startswith(FIX), done["answer"])
 
+check_reply[0] = "OK"
 evs, messages, done = ask(RICE)
-check("no card, no check for an everyday question",
-      len(asked) == 1 and not any(e["type"] in ("card", "safety_fix") for e in evs), [e["type"] for e in evs])
+check("no card for an everyday question, but still the check (it says OK)",
+      len(asked) == 2 and core.NO_CARD in asked[1]["last"]
+      and not any(e["type"] in ("card", "safety_fix") for e in evs), [e["type"] for e in evs])
 
 # The memory step reads what the person said, not the cards added to it
 check("cards are kept out of what the person said", core.ADDED.split(asked[0]["last"] if asked else "", 1)[0] == RICE)

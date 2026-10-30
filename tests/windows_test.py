@@ -196,6 +196,7 @@ def fake_stream(model, messages, tools, think, options):
 
 
 core._stream = fake_stream
+core.CHECK_EVERY_ANSWER = False  # the check on every answer: tests/answer_quality_test.py
 
 
 def ask(messages, q, steps):

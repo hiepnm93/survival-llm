@@ -57,6 +57,7 @@ def fake_stream(model, messages, tools, think, options):
 
 core._stream = fake_stream
 core.match_cards, core.is_hazard = (lambda q: []), (lambda q: False)  # safety cards and their check: tests/safety_test.py
+core.CHECK_EVERY_ANSWER = False  # the check on every answer: tests/answer_quality_test.py
 
 
 def thinking(text):
