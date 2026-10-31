@@ -203,6 +203,21 @@ của CDC. Bản mới có một lỗi nhỏ (bóp ve bằng móng tay), không 
 trong mức nhiễu; điều rõ rệt là không còn câu trả lời có hại và trích dẫn nhiều hơn. Kết quả thô ở
 `evals/results/heldout/`, phiếu chấm ở `evals/judging/heldout/`.
 
+**Nhánh `answer-quality` (thử nghiệm, chưa nên dùng).** Chấm mù lại cả ba bản cùng lúc trên 20 câu held-out:
+
+| Chỉ số (20 câu held-out) | `8555a04` | `safety-retrieval` | `answer-quality` |
+|---|---|---|---|
+| Độ chính xác (chấm mù) | 82% | **88%** | 77% |
+| Câu đạt điểm tối đa 3/3 | 10 | **13** | 7 |
+| Câu trả lời có hại nếu làm theo | 1 | **0** | 1 |
+| Điểm fact tự động | 0.954 | 0.938 | 0.95 |
+| Có trích dẫn | 13/20 | **18/20** | 17/20 |
+| Giây mỗi câu | 32.6 | **30.0** | 61.8 |
+
+`answer-quality` đọc nhiều bài hơn và tự kiểm tra câu trả lời, nhưng câu trả lời ngắn hơn và hay thiếu ý quan trọng
+(khi nào gọi cấp cứu, cảnh báo dùng lửa, cảnh báo nhà di động), lại nói sữa mẹ để nhiệt độ phòng 6–8 giờ (CDC: 4 giờ)
+và chậm gấp đôi. Giữ `safety-retrieval` làm bản chính.
+
 ## Nó hoạt động thế nào
 
 ```
