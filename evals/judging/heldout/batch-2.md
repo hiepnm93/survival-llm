@@ -25,6 +25,20 @@ Sources: none opened (it only saw the search results below)
 ### Answer B
 Sources it read: none
 
+No, it is not safe to leave a space heater running in your bedroom overnight. Heating equipment causes the second leading number of home fires and many of these happen while people are sleeping, when they can't react quickly if something goes wrong. Even heaters with automatic shut-off features can malfunction or develop electrical faults that those safety mechanisms won't prevent.
+
+If you need extra warmth at night:
+1. Turn off the space heater before going to sleep
+2. Use warm bedding instead—extra blankets, a hot water bottle, or heated mattress pads (which are designed for overnight use)
+3. If you must have it running while awake in the room, ensure it has auto shut-off and keep everything flammable at least three feet away
+
+If your bedroom is consistently too cold to sleep safely without a space heater, consider other heating options for your home or check if there are energy assistance programs available.
+
+Sources: none opened (it only saw the search results below)
+
+### Answer C
+Sources it read: none
+
 No, it is generally not safe to leave a space heater running unattended in your bedroom overnight while you sleep. Space heaters are a leading cause of home heating fires, causing about 25,000 fires annually in the U.S., resulting in roughly 300 deaths.
 
 If you must use one for safety during a power outage or extreme cold, follow these strict precautions:
@@ -63,6 +77,26 @@ Sources it read: Emergency bleeding control
 Sources: Severe bleeding (Red Cross), Emergency bleeding control (WikiMed)
 
 ### Answer B
+Sources it read: Nosebleed
+
+**Do this now:**
+1. Sit upright and lean your head slightly forward so blood drains out of your nostrils rather than down your throat.
+2. Using your thumb and index finger, pinch the soft part of your nose just below the bony bridge.
+3. Maintain firm pressure continuously for at least 5 minutes; if it is still bleeding after 5 minutes, continue pinching for up to 10–30 minutes without releasing to check.
+
+**Do NOT:**
+- Tilt your head back, as this causes blood to run down your throat and may lead to vomiting or choking.
+- Stuff tissues, cotton, or gauze deep into the nose, as removing them later can restart bleeding.
+- Lie flat on your back.
+
+**Get help if:**
+The bleeding does not stop after 30 minutes of continuous pinching. Call emergency services (911) immediately if you feel faint, are coughing up large amounts of blood, or if the nosebleed started after a significant injury to the face or head.
+
+(Not in what it read, so treat these numbers as uncertain: 10.)
+
+Sources: Nosebleed (WikiMed), Severe bleeding (Red Cross)
+
+### Answer C
 Sources it read: none
 
 Sit up and lean forward slightly. Do not tilt your head back, as this causes blood to run down your throat.
@@ -80,6 +114,43 @@ Sources: none (from my own knowledge)
 **Official guidance:** NHS / Mayo Clinic: rest it and avoid putting weight on it at first; apply an ice pack wrapped in a towel for 15-20 minutes every 2-3 hours; compress with an elastic bandage (not too tight); raise it above heart level; get medical care if you can't put weight on it, it is very painful or deformed, or it isn't better after a few days.
 
 ### Answer A
+Sources it read: US Army ATP 3-50.21: Survival
+
+Treat your ankle using the RICE method to reduce swelling and pain:
+
+1. **Rest**: Stop using the ankle. Avoid putting weight on it to prevent further injury.
+2. **Ice**: Apply an ice pack or cold compress to the swollen area for 15–20 minutes at a time, several times a day. Do this intermittently for up to 48 hours. Never apply ice directly to the skin; wrap it in a cloth.
+3. **Compression**: Wrap the ankle with an elastic bandage (like an Ace bandage) to help stabilize it and reduce swelling. Ensure it is snug but not tight enough to cut off circulation. If your toes become numb, tingle, or turn blue/pale, loosen the wrap immediately.
+4. **Elevation**: Keep your foot raised above the level of your heart as much as possible (e.g., propped up on pillows while lying down) to help drain fluid and reduce swelling.
+
+**When to seek medical attention:**
+If you cannot bear any weight on the ankle, if there is significant deformity, or if pain is severe and unmanageable, you may have a fracture. Seek professional medical care immediately. If your toes become numb, cold, or pale despite proper wrapping, this indicates circulation issues; remove the bandage and seek help.
+
+(Not in what it read, so treat these numbers as uncertain: 15, 20 minutes, 48 hours.)
+
+Sources: US Army ATP 3-50.21
+
+### Answer B
+Sources it read: Sprain
+
+For a twisted ankle with swelling, use the RICE method:
+
+1. **Rest** - Avoid putting weight on the injured ankle
+2. **Ice** - Apply cold packs for 15-20 minutes at a time, several times daily
+3. **Compression** - Wrap the ankle with an elastic bandage to support it and reduce swelling. Start wrapping from the toes and work upward toward your heart. Make sure it's snug but not tight enough to cut off circulation (your toes should stay warm and pink)
+4. **Elevation** - Keep your ankle raised above heart level as much as possible to minimize swelling
+
+**After 48-72 hours**, begin gentle movement exercises within comfort limits. Prolonged immobilization can actually delay healing by causing muscle weakness.
+
+**Seek medical attention if:**
+- You cannot put any weight on the ankle after 30 minutes of rest
+- The pain is severe or worsening
+- There's significant bruising or deformity
+- Numbness develops in your foot or toes
+
+Sources: Sprain (WikiMed)
+
+### Answer C
 Sources it read: Sprained ankle
 
 # For Your Twisted, Swollen Ankle: Immediate Care
@@ -122,26 +193,6 @@ Most mild sprains improve significantly within 1-2 weeks with proper RICE care. 
 
 Sources: Sprained ankle (WikiMed), Ottawa Ankle Rules (WikEM)
 
-### Answer B
-Sources it read: Sprain
-
-For a twisted ankle with swelling, use the RICE method:
-
-1. **Rest** - Avoid putting weight on the injured ankle
-2. **Ice** - Apply cold packs for 15-20 minutes at a time, several times daily
-3. **Compression** - Wrap the ankle with an elastic bandage to support it and reduce swelling. Start wrapping from the toes and work upward toward your heart. Make sure it's snug but not tight enough to cut off circulation (your toes should stay warm and pink)
-4. **Elevation** - Keep your ankle raised above heart level as much as possible to minimize swelling
-
-**After 48-72 hours**, begin gentle movement exercises within comfort limits. Prolonged immobilization can actually delay healing by causing muscle weakness.
-
-**Seek medical attention if:**
-- You cannot put any weight on the ankle after 30 minutes of rest
-- The pain is severe or worsening
-- There's significant bruising or deformity
-- Numbness develops in your foot or toes
-
-Sources: Sprain (WikiMed)
-
 ## Question 13: I found a tick stuck in my skin. How do I get it out?
 
 **Official guidance:** CDC: use clean fine-tipped tweezers to grasp the tick as close to the skin's surface as possible and pull upward with steady, even pressure; don't twist or jerk; clean the bite and your hands with rubbing alcohol or soap and water; don't use nail polish, petroleum jelly or heat; watch for a rash or fever over the next few weeks.
@@ -164,6 +215,15 @@ Remove the tick as soon as possible using fine-tipped tweezers.
 Sources: Tick Bites | Tickborne Disease (MedlinePlus (NIH))
 
 ### Answer B
+Sources it read: none
+
+1. Use fine-tipped tweezers or forceps to grasp the tick as close to your skin surface as possible.
+2. Pull upward with steady, even pressure. Do not twist, jerk, or crush the tick's body.
+3. Disinfect the bite site after removing the tick.
+
+Sources: Tick Bites | Tickborne Disease (MedlinePlus), Tick removal (WikEM), Colorado tick fever (WikiMed).
+
+### Answer C
 Sources it read: Tick Bites | Tickborne Disease
 
 Remove the tick as soon as possible using fine-tipped tweezers to minimize the risk of infection.
@@ -185,6 +245,41 @@ Sources: Tick Bites | Tickborne Disease (MedlinePlus (NIH))
 ### Answer A
 Sources it read: How to Unfreeze Water Pipes
 
+To thaw a frozen pipe safely, follow these steps:
+
+1. Locate the frozen section by feeling for cold spots or tapping the pipe; listen for a solid sound indicating ice.
+2. Turn on the faucet connected to the frozen pipe and nearby faucets to let water trickle. This helps prevent freezing and may assist in thawing.
+3. If you see cracks, shut off your main water supply immediately and close all faucets.
+4. Apply heat using one of these methods:
+   - Move a hair dryer back and forth along the pipe (avoid direct contact to prevent damage).
+   - Wrap electrical heat tape around the pipe in a single layer.
+   - Soak towels in hot water, wring them out, and wrap them around the frozen section, replacing every 5–10 minutes.
+5. For larger areas, use space heaters or incandescent light bulbs near (but not touching) the pipes to raise ambient temperature.
+
+Once thawed, inspect the pipe for leaks before resuming normal water flow.
+
+Sources: Unfreeze Water Pipes, wikiHow
+
+### Answer B
+Sources it read: How to Unfreeze Water Pipes
+
+To thaw a frozen water pipe safely:
+
+1.  **Open the faucet** attached to the frozen pipe. This relieves pressure in the system and allows water to flow as the ice melts, which helps clear the blockage. Keep it open during the process.
+2.  **Locate the frozen section.** Check exposed pipes in basements, crawl spaces, or under sinks. Feel for areas that are significantly colder than others, or tap the pipe with a screwdriver handle to listen for a solid (frozen) sound versus a hollow one.
+3.  **Check for cracks before applying heat.** If you see any leaks or cracks, turn off your main water supply immediately and call a plumber. Do not attempt to thaw a damaged pipe yourself.
+4.  **Apply gentle heat.** Use a hair dryer on the highest setting, moving it back and forth along the frozen section of the pipe. Start near the faucet and work toward the coldest spot. You can also soak towels in hot water, ring them out, and wrap them around the pipe, replacing them every 5–10 minutes.
+5.  **Improve air circulation.** Open cabinet doors under sinks to let warm room air circulate around the pipes. Turn up your thermostat if necessary.
+
+**Safety Warnings:**
+*   **Never use a blowtorch, open flame, or heat gun directly on PVC pipes**, as they can melt or rupture easily. If you must use a heat gun on metal pipes, keep it moving and do not let it get too hot.
+*   Do not leave heating devices unattended.
+
+Sources: How to Unfreeze Water Pipes (wikiHow)
+
+### Answer C
+Sources it read: How to Unfreeze Water Pipes
+
 Check the pipe for cracks or leaks first. If you see any, turn off your main water supply immediately and close all faucets. If there is no damage, follow these steps:
 
 1.  **Open Faucets:** Turn on the faucet attached to the frozen pipe and any nearby working faucets to a trickle. Running water helps relieve pressure and can help melt the ice blockage over time.
@@ -204,20 +299,3 @@ Check the pipe for cracks or leaks first. If you see any, turn off your main wat
 **Prevention:** During freezing weather, keep faucets slightly open so water keeps moving (a trickle), and insulate exposed pipes with foam covers or rags.
 
 Sources: wikiHow "How to Unfreeze Water Pipes"
-
-### Answer B
-Sources it read: How to Unfreeze Water Pipes
-
-To thaw a frozen water pipe safely:
-
-1.  **Open the faucet** attached to the frozen pipe. This relieves pressure in the system and allows water to flow as the ice melts, which helps clear the blockage. Keep it open during the process.
-2.  **Locate the frozen section.** Check exposed pipes in basements, crawl spaces, or under sinks. Feel for areas that are significantly colder than others, or tap the pipe with a screwdriver handle to listen for a solid (frozen) sound versus a hollow one.
-3.  **Check for cracks before applying heat.** If you see any leaks or cracks, turn off your main water supply immediately and call a plumber. Do not attempt to thaw a damaged pipe yourself.
-4.  **Apply gentle heat.** Use a hair dryer on the highest setting, moving it back and forth along the frozen section of the pipe. Start near the faucet and work toward the coldest spot. You can also soak towels in hot water, ring them out, and wrap them around the pipe, replacing them every 5–10 minutes.
-5.  **Improve air circulation.** Open cabinet doors under sinks to let warm room air circulate around the pipes. Turn up your thermostat if necessary.
-
-**Safety Warnings:**
-*   **Never use a blowtorch, open flame, or heat gun directly on PVC pipes**, as they can melt or rupture easily. If you must use a heat gun on metal pipes, keep it moving and do not let it get too hot.
-*   Do not leave heating devices unattended.
-
-Sources: How to Unfreeze Water Pipes (wikiHow)

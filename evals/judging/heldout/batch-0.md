@@ -5,13 +5,11 @@
 ### Answer A
 Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
 
-Call 911 or go to the nearest emergency room immediately. Do not wait for symptoms to appear.
+Stay calm and move slowly to keep your heart rate down, which slows the spread of venom if it was injected. Remove any rings, watches, or tight clothing near the bite immediately, as swelling will likely occur quickly. Keep the bitten leg still and positioned at or slightly below the level of your heart.
 
-1. **Stay Calm and Still:** Keep the bitten leg still and positioned at or slightly below heart level. Movement increases blood flow, which spreads venom faster. Remove tight clothing or jewelry near the bite before swelling starts.
-2. **Clean the Wound:** If available, gently wash the area with soap and water to reduce infection risk. Cover it with a clean, dry dressing.
-3. **Do Not:** Do not cut the wound, attempt to suck out venom, apply ice, or use a tourniquet. Do not drink alcohol or caffeine. Do not try to catch or kill the snake; take a photo from a safe distance if possible, but do not delay treatment.
+Call 911 or have someone drive you to the nearest emergency room immediately. Even if you think the snake was non-venomous, it is safer to get medical evaluation for potential infection or allergic reaction. Do not try to cut the wound, suck out venom, apply ice, or use a tourniquet. If possible, note the snake's appearance (color, shape, size) but do not attempt to catch or kill it.
 
-Sources: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
+Sources: none (from my own knowledge)
 
 ### Answer B
 Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026); US Army ATP 3-50.21: Survival
@@ -48,24 +46,22 @@ Most snakebites are not fatal with proper treatment, but prompt medical care is 
 
 Sources: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026) (U.S. government survival and first-aid manuals); US Army ATP 3-50.21: Survival (U.S. government survival and first-aid manuals)
 
+### Answer C
+Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
+
+Call 911 or go to the nearest emergency room immediately. Do not wait for symptoms to appear.
+
+1. **Stay Calm and Still:** Keep the bitten leg still and positioned at or slightly below heart level. Movement increases blood flow, which spreads venom faster. Remove tight clothing or jewelry near the bite before swelling starts.
+2. **Clean the Wound:** If available, gently wash the area with soap and water to reduce infection risk. Cover it with a clean, dry dressing.
+3. **Do Not:** Do not cut the wound, attempt to suck out venom, apply ice, or use a tourniquet. Do not drink alcohol or caffeine. Do not try to catch or kill the snake; take a photo from a safe distance if possible, but do not delay treatment.
+
+Sources: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
+
 ## Question 1: I can smell gas in my kitchen. What should I do?
 
 **Official guidance:** Ready.gov / gas utilities: leave the building at once and get everyone out; don't turn light switches or appliances on or off, use phones, lighters or matches, or anything that could spark; don't look for the leak; call 911 or the gas company from a safe distance outside; don't go back in until they say it is safe.
 
 ### Answer A
-Sources it read: none
-
-This is an immediate safety emergency. Follow these steps right now:
-
-1. Leave the building immediately with everyone.
-2. Do **not** use light switches, phones, lighters, or anything that could make a spark while you are inside.
-3. Do not look for the leak.
-4. Once you are at a safe distance outside, call 911 or your gas company.
-5. Do not go back in until they say it is safe.
-
-Sources: Gas leaks (Ready.gov)
-
-### Answer B
 Sources it read: none
 
 This is an emergency situation. Natural gas leaks can cause explosions and fires. Take these steps immediately:
@@ -80,11 +76,73 @@ Natural gas leaks are extremely dangerous and can cause fires or explosions. Don
 
 Sources: none opened (it only saw the search results below)
 
+### Answer B
+Sources it read: none
+
+This is an immediate safety emergency. Follow these steps right now:
+
+1. Leave the building immediately with everyone.
+2. Do **not** use light switches, phones, lighters, or anything that could make a spark while you are inside.
+3. Do not look for the leak.
+4. Once you are at a safe distance outside, call 911 or your gas company.
+5. Do not go back in until they say it is safe.
+
+Sources: Gas leaks (Ready.gov)
+
+### Answer C
+Sources it read: Safety Skills; FEMA: Are You Ready? An In-Depth Guide to Citizen Preparedness
+
+**Do this now:**
+1. Leave the building immediately and get everyone out with you.
+2. Do not use light switches, phones, lighters, or anything that could make a spark while leaving.
+3. Do not try to look for the leak.
+4. Once you are at a safe distance outside, call 911 or your gas company immediately.
+
+**Do NOT:**
+- Go back inside until emergency services or the gas company say it is safe to do so.
+- Turn on or off any electrical switches or appliances.
+- Use open flames (matches, lighters) or electronic devices inside the building.
+
+**Get help if:**
+You smell gas right now; this requires immediate emergency assistance from 911 or your local gas company.
+
+Sources: Gas leaks (Ready.gov), Safety Skills (Ready.gov (FEMA)), FEMA: Are You Ready?
+
 ## Question 2: My neighbor collapsed and isn't breathing. What do I do?
 
 **Official guidance:** Red Cross / AHA: call 911 (phone on speaker) and send someone for an AED; start CPR: push hard and fast in the center of the chest, at least 2 inches (5 cm) deep, 100 to 120 compressions a minute, letting the chest rise between pushes; untrained people can do hands-only CPR; use the AED as soon as it arrives and follow its prompts; keep going until help takes over or they start breathing.
 
 ### Answer A
+Sources it read: none
+
+This is a life-threatening emergency. Act quickly:
+
+1. Call 911 immediately or have someone else call for you right now.
+2. Begin CPR if they are unresponsive and not breathing normally:
+   - Place the heel of one hand in the center of their chest, with your other hand on top.
+   - Push hard and fast, compressing at least 2 inches deep at a rate of 100-120 times per minute (like the beat of "Stayin' Alive").
+   - Let the chest rise completely between compressions.
+3. If an Automated External Defibrillator (AED) is available nearby, use it as soon as possible and follow its prompts.
+4. Continue CPR until emergency responders arrive or the person starts breathing on their own.
+
+Sources: none opened (it only saw the search results below)
+
+### Answer B
+Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
+
+This is a medical emergency. Call 911 immediately, or have someone nearby call while you begin first aid.
+
+Follow these steps from U.S. Army First Aid guidelines:
+
+1. **Check the scene and the person:** Ensure they are lying on their back on a firm, flat surface (like the ground). Kneel beside their chest.
+2. **Start Chest Compressions:** Place the heel of one hand in the center of their chest, between the nipples. Put your other hand on top and interlock your fingers. Keep your arms straight and shoulders directly over your hands.
+3. **Push Hard and Fast:** Press down firmly so their chest compresses at least 2 inches deep. Push at a rate of 100 to 120 compressions per minute (about two pushes every second). Make sure the chest fully recoils back up between each push without lifting your hands off the chest.
+4. **Rescue Breaths:** If you are trained and willing, after 30 compressions, tilt their head back, lift their chin, and give them 2 rescue breaths (one breath every second, watching for their chest to rise). Continue cycles of 30 compressions and 2 breaths.
+5. **Continue until help arrives:** Do not stop unless they start moving or breathing normally, or professional medical personnel take over.
+
+**Sources:** US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
+
+### Answer C
 Sources it read: none
 
 Call 911 immediately. Then start CPR right away:
@@ -103,35 +161,28 @@ This is my best knowledge, but I'm not a doctor. Every minute without CPR reduce
 
 Sources: none (from my own knowledge)
 
-### Answer B
-Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
-
-This is a medical emergency. Call 911 immediately, or have someone nearby call while you begin first aid.
-
-Follow these steps from U.S. Army First Aid guidelines:
-
-1. **Check the scene and the person:** Ensure they are lying on their back on a firm, flat surface (like the ground). Kneel beside their chest.
-2. **Start Chest Compressions:** Place the heel of one hand in the center of their chest, between the nipples. Put your other hand on top and interlock your fingers. Keep your arms straight and shoulders directly over your hands.
-3. **Push Hard and Fast:** Press down firmly so their chest compresses at least 2 inches deep. Push at a rate of 100 to 120 compressions per minute (about two pushes every second). Make sure the chest fully recoils back up between each push without lifting your hands off the chest.
-4. **Rescue Breaths:** If you are trained and willing, after 30 compressions, tilt their head back, lift their chin, and give them 2 rescue breaths (one breath every second, watching for their chest to rise). Continue cycles of 30 compressions and 2 breaths.
-5. **Continue until help arrives:** Do not stop unless they start moving or breathing normally, or professional medical personnel take over.
-
-**Sources:** US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026)
-
 ## Question 3: Someone at dinner is choking and can't talk or cough. How do I help?
 
 **Official guidance:** Red Cross / NHS: if they can't cough, speak or breathe, have someone call 911; give 5 back blows between the shoulder blades with the heel of your hand, then 5 abdominal thrusts (Heimlich maneuver): fist just above the navel, quick inward and upward pulls; repeat until the object comes out; if they become unresponsive, lower them to the ground and start CPR.
 
 ### Answer A
-Sources it read: none
+Sources it read: US Army ATP 4-02.11: Casualty Response, Tactical Combat Casualty Care and First Aid (2026); Choking | Heimlich Maneuver | CPR
 
-Act immediately. Call 911 right away. Then:
+**Do this now:**
+1. Call 911 immediately.
+2. Give 5 firm back blows between the shoulder blades using the heel of your hand.
+3. Perform 5 abdominal thrusts (Heimlich maneuver).
+4. Repeat the cycle of 5 back blows and 5 abdominal thrusts until the object is expelled or they become unresponsive.
 
-1. **For an adult or child over 1:** Give 5 firm back blows between the shoulder blades with the heel of your hand, followed by 5 abdominal thrusts (Heimlich maneuver). Keep repeating this cycle until the object comes out or they become unresponsive.
-2. **For a baby under 1:** Give 5 back blows and then 5 chest thrusts using two fingers on the breastbone. Never use abdominal thrusts. 
-3. **If they become unresponsive:** Lay them flat on their back, call for help if you haven't already, and begin CPR immediately.
+**Do NOT:**
+- Wait to see if it gets better; inability to cough, speak, or breathe requires immediate action.
+- Use chest thrusts instead of abdominal thrusts for a typical adult or child over 1 year old.
 
-Sources: Choking (Red Cross)
+**Get help if:**
+- The person cannot cough, speak, or breathe—call 911 immediately as instructed by the safety card.
+- They become unresponsive at any point (activate emergency services and begin CPR).
+
+**Sources:** Choking (Red Cross) - American Red Cross official safety guidance.
 
 ### Answer B
 Sources it read: Choking | Heimlich Maneuver | CPR; Heimlich maneuver
@@ -154,6 +205,17 @@ This is a medical emergency. Since the person can't talk or cough, call 911 imme
 
 **Sources:** MedlinePlus (NIH), WikiMed (Heimlich maneuver)
 
+### Answer C
+Sources it read: none
+
+Act immediately. Call 911 right away. Then:
+
+1. **For an adult or child over 1:** Give 5 firm back blows between the shoulder blades with the heel of your hand, followed by 5 abdominal thrusts (Heimlich maneuver). Keep repeating this cycle until the object comes out or they become unresponsive.
+2. **For a baby under 1:** Give 5 back blows and then 5 chest thrusts using two fingers on the breastbone. Never use abdominal thrusts. 
+3. **If they become unresponsive:** Lay them flat on their back, call for help if you haven't already, and begin CPR immediately.
+
+Sources: Choking (Red Cross)
+
 ## Question 4: I splashed drain cleaner in my eye. What should I do?
 
 **Official guidance:** CDC / Mayo Clinic / Poison Control: rinse the eye right away with lukewarm running water for at least 15-20 minutes, holding the eyelid open; take out contact lenses; don't rub the eye; call Poison Control (1-800-222-1222) and get emergency care, since drain cleaners (lye) can cause serious eye damage.
@@ -161,21 +223,16 @@ This is a medical emergency. Since the person can't talk or cough, call 911 imme
 ### Answer A
 Sources it read: none
 
-Flush your eye **immediately** with clean water for at least 15–20 minutes. This is a medical emergency—drain cleaner contains strong chemicals (usually lye/sodium hydroxide) that can cause permanent damage or blindness if not treated promptly.
+This is a medical emergency. Drain cleaners are typically strong alkalis that can cause permanent blindness within minutes.
 
-**Do this now:**
-1. Hold your eyelids open and let lukewarm tap water run over the affected eye for at least 15 minutes. Keep flushing even if it hurts—time is critical.
-2. If you wear contact lenses, remove them during flushing (but don't delay starting to flush).
-3. Have someone else call emergency services or drive you to an emergency room as soon as possible. Do not drive yourself.
+1. **Flush immediately**: Go to a sink, shower, or hose and flush your eye with cool or lukewarm tap water **now**. Do not wait for anything else.
+2. **Keep flushing**: Hold your eyelids open and let the water run over the eyeball from the inside corner to the outside for at least 15–20 minutes. If you are alone, prop your head under a faucet or use a cup to pour water continuously into the eye while tilting your head back.
+3. **Remove contacts**: If you wear contact lenses and they come out easily during flushing, remove them. Do not spend time trying to pry them out if they stick; keep flushing with them in.
+4. **Seek emergency care**: Call 911 or have someone drive you to the nearest Emergency Room immediately after you start flushing. Bring the bottle of drain cleaner with you so doctors know exactly what chemical caused the burn.
 
-**Do not:**
-- Rub the eye.
-- Try to neutralize with vinegar, baking soda, or any other substance—this can cause more damage.
-- Delay flushing to find special solutions; tap water is fine.
+Do not rub your eye. Do not use any neutralizing chemicals (like vinegar), as this can cause a heat reaction that worsens the injury.
 
-Even after thorough rinsing, you need urgent medical evaluation because chemical burns can worsen over hours and may not be fully apparent immediately.
-
-Sources: none opened (it only saw the search results below)
+Sources: US Army ATP 4-02.11, Ready.gov, US Army ATP 3-50.21
 
 ### Answer B
 Sources it read: none
@@ -196,5 +253,24 @@ Sources it read: none
 - Bring the drain cleaner container with you so medical staff know exactly what chemical was involved.
 
 Every minute counts. Start flushing now and seek emergency care immediately after or while continuing to rinse.
+
+Sources: none opened (it only saw the search results below)
+
+### Answer C
+Sources it read: none
+
+Flush your eye **immediately** with clean water for at least 15–20 minutes. This is a medical emergency—drain cleaner contains strong chemicals (usually lye/sodium hydroxide) that can cause permanent damage or blindness if not treated promptly.
+
+**Do this now:**
+1. Hold your eyelids open and let lukewarm tap water run over the affected eye for at least 15 minutes. Keep flushing even if it hurts—time is critical.
+2. If you wear contact lenses, remove them during flushing (but don't delay starting to flush).
+3. Have someone else call emergency services or drive you to an emergency room as soon as possible. Do not drive yourself.
+
+**Do not:**
+- Rub the eye.
+- Try to neutralize with vinegar, baking soda, or any other substance—this can cause more damage.
+- Delay flushing to find special solutions; tap water is fine.
+
+Even after thorough rinsing, you need urgent medical evaluation because chemical burns can worsen over hours and may not be fully apparent immediately.
 
 Sources: none opened (it only saw the search results below)

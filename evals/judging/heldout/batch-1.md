@@ -22,6 +22,19 @@ Until help arrives:
 Sources: IFRC International First Aid, Resuscitation and Education Guidelines 2020
 
 ### Answer B
+Sources it read: IFRC International First Aid, Resuscitation and Education Guidelines 2020
+
+If you suspect a broken arm, take these steps immediately while arranging transport to a doctor:
+
+1.  **Stop moving and stabilize:** Do not try to straighten the arm or force it into any specific position. Keep it still exactly as it feels most comfortable to prevent further damage.
+2.  **Immobilize:** If you have a sling, use it. Otherwise, support the arm against your chest or prop it up on pillows/cushions so it doesn't dangle.
+3.  **Apply Cold:** Apply an ice pack or something cold wrapped in a cloth to the injured area for up to 20 minutes. This helps reduce pain and swelling. Do not apply ice directly to the skin.
+4.  **Check for Bleeding:** If there is an open wound where bone might be protruding, apply gentle pressure with a clean cloth to stop bleeding before splinting.
+5.  **Seek Medical Help:** Go to an emergency room or urgent care as soon as possible. If the arm looks deformed, you have severe pain/swelling, or you cannot move your fingers, call for emergency transport if available.
+
+Sources: IFRC International First Aid, Resuscitation and Education Guidelines 2020
+
+### Answer C
 Sources it read: none
 
 # First Aid for Suspected Broken Arm
@@ -73,6 +86,13 @@ Sources: Ready.gov (FEMA) Tornadoes guidance.
 ### Answer B
 Sources it read: Tornadoes
 
+Go immediately to the lowest level of your house. The safest spots are a basement or a small interior room with no windows, such as a closet or bathroom. Stay away from all windows, doors, and outside walls. Once you reach that spot, crouch down low and use your arms to protect your head and neck.
+
+Sources: Tornadoes (Ready.gov (FEMA))
+
+### Answer C
+Sources it read: Tornadoes
+
 Go to the **lowest level** of your house immediately (basement, cellar, or storm cellar). If there is no basement:
 
 1. Go to an **interior room** on the lowest floor (bathroom, closet, or hallway).
@@ -88,29 +108,6 @@ Sources: Ready.gov (FEMA) Tornadoes; Severe Weather Safety Social Media Toolkit
 **Official guidance:** Ready.gov / USGS: Drop, Cover, and Hold On: drop to your hands and knees, cover your head and neck under a sturdy table or desk (or against an interior wall), and hold on until the shaking stops; stay away from windows and glass; don't run outside or stand in a doorway; in bed, stay there and cover your head with a pillow.
 
 ### Answer A
-Sources it read: Earthquakes; How to survive an earthquake
-
-Stay calm and follow these steps immediately:
-
-1. **DROP** to your hands and knees. This prevents you from being knocked down and allows you to crawl to shelter.
-2. **COVER** your head and neck with your arms. If nearby, get under a sturdy table or desk. If no shelter is available, move next to an interior wall (away from windows).
-3. **HOLD ON** to your shelter until the shaking stops. Be prepared to move with it if it shifts.
-
-**If you are in specific locations:**
-*   **In bed:** Stay there and cover your head/neck with a pillow or your arms. You are less likely to be injured staying put than trying to move across a moving floor.
-*   **Outside:** Move away from buildings, streetlights, utility wires, and trees if you can do so safely, then drop and cover.
-*   **Driving:** Pull over to a clear spot, stop, and stay in the vehicle. Avoid stopping under overpasses or near power lines.
-
-**Do NOT:**
-*   Do not run outside; falling debris from buildings is a major cause of injury during earthquakes.
-*   Do not use elevators.
-*   Do not stand in a doorway (this is an outdated myth that offers no protection).
-
-Wait for the shaking to completely stop before moving around or checking for injuries. Watch out for aftershocks, which can happen minutes or days later and may knock down weakened structures.
-
-Sources: Ready.gov (FEMA), Appropedia ("How to survive an earthquake")
-
-### Answer B
 Sources it read: none
 
 **Drop, Cover, and Hold On.**
@@ -133,26 +130,48 @@ Once the shaking stops:
 
 Sources: none (from its own knowledge)
 
+### Answer B
+Sources it read: none
+
+1.  **Drop** to the ground immediately so you don't fall over.
+2.  **Take Cover**: Get under a sturdy table or desk if one is nearby. If not, crouch in an interior corner of the room and cover your head and neck with your arms. Stay away from windows and anything that could fall on you.
+3.  **Hold On**: Hold onto your shelter (table/desk) until the shaking stops.
+4.  **If you are in bed**, stay there, turn face down, and cover your head and neck with a pillow.
+
+**Do not run outside** while the ground is shaking, as falling debris causes most injuries. Do not stand in doorways; this is an outdated myth that offers no protection.
+
+Once the shaking stops, be prepared for aftershocks.
+
+Sources: Earthquakes (Ready.gov)
+
+### Answer C
+Sources it read: Earthquakes; How to survive an earthquake
+
+Stay calm and follow these steps immediately:
+
+1. **DROP** to your hands and knees. This prevents you from being knocked down and allows you to crawl to shelter.
+2. **COVER** your head and neck with your arms. If nearby, get under a sturdy table or desk. If no shelter is available, move next to an interior wall (away from windows).
+3. **HOLD ON** to your shelter until the shaking stops. Be prepared to move with it if it shifts.
+
+**If you are in specific locations:**
+*   **In bed:** Stay there and cover your head/neck with a pillow or your arms. You are less likely to be injured staying put than trying to move across a moving floor.
+*   **Outside:** Move away from buildings, streetlights, utility wires, and trees if you can do so safely, then drop and cover.
+*   **Driving:** Pull over to a clear spot, stop, and stay in the vehicle. Avoid stopping under overpasses or near power lines.
+
+**Do NOT:**
+*   Do not run outside; falling debris from buildings is a major cause of injury during earthquakes.
+*   Do not use elevators.
+*   Do not stand in a doorway (this is an outdated myth that offers no protection).
+
+Wait for the shaking to completely stop before moving around or checking for injuries. Watch out for aftershocks, which can happen minutes or days later and may knock down weakened structures.
+
+Sources: Ready.gov (FEMA), Appropedia ("How to survive an earthquake")
+
 ## Question 8: We're hiking and a thunderstorm is coming. There are no buildings nearby. What should we do?
 
 **Official guidance:** NWS: no place outside is safe; get to a building or hard-topped car if you can; otherwise get off hills, ridges and peaks, never shelter under a lone tree, stay away from water and metal fences, and spread the group out; don't lie flat; wait 30 minutes after the last thunder before going on.
 
 ### Answer A
-Sources it read: none
-
-No place outdoors is completely safe during a lightning storm. Since you have no buildings nearby, take these steps immediately:
-
-1. Get off any hilltops or ridges right away
-2. Stay well away from bodies of water (lakes, streams, rivers)
-3. Avoid lone trees—lightning often strikes the tallest object in an open area
-4. If possible, move to lower ground like a valley or dense forest with evenly-sized trees
-5. Crouch low on the balls of your feet with your head tucked and ears covered (minimize contact with the ground)
-
-Wait at least 30 minutes after the last sound of thunder before continuing your hike. Lightning can strike miles from a storm's center, so don't assume the danger has passed just because it looks like the rain is stopping.
-
-Sources: Lightning (NWS)
-
-### Answer B
 Sources it read: How to Avoid Getting Hit by Lightning; Are You Ready?/Thunderstorms and Lightning
 
 Get to lower ground immediately. If you are in an open area, move into a depression, ravine, or valley. If you are in a forest, seek shelter under a thick growth of small trees. 
@@ -175,11 +194,76 @@ Stay in a safe position for at least 30 minutes after you hear the last clap of 
 
 Sources: How to Avoid Getting Hit by Lightning (wikiHow); Are You Ready?/Thunderstorms and Lightning (Appropedia)
 
+### Answer B
+Sources it read: none
+
+No place outdoors is completely safe during a lightning storm. Since you have no buildings nearby, take these steps immediately:
+
+1. Get off any hilltops or ridges right away
+2. Stay well away from bodies of water (lakes, streams, rivers)
+3. Avoid lone trees—lightning often strikes the tallest object in an open area
+4. If possible, move to lower ground like a valley or dense forest with evenly-sized trees
+5. Crouch low on the balls of your feet with your head tucked and ears covered (minimize contact with the ground)
+
+Wait at least 30 minutes after the last sound of thunder before continuing your hike. Lightning can strike miles from a storm's center, so don't assume the danger has passed just because it looks like the rain is stopping.
+
+Sources: Lightning (NWS)
+
+### Answer C
+Sources it read: Is it safe to be in a vehicle during lightning/thunderstorms?; Thunderstorms
+
+**Do this now:**
+1. Get off any hilltops immediately.
+2. Move away from bodies of water and avoid standing under lone trees.
+3. If you have a hard-topped vehicle with windows up, get inside and stay there until 30 minutes after the last thunder.
+4. If no building or car is available, crouch low on the ground in a low-lying area (like a ditch) but do not lie flat; keep your feet together to minimize ground current risk if struck nearby.
+
+**Do NOT:**
+1. Do not shelter under tall, isolated trees.
+2. Do not stay near water or wet objects.
+3. Do not lie flat on the ground.
+4. Do not use corded phones or touch plumbing/water sources if you reach a building.
+
+**Get help if:**
+Someone is struck by lightning: they carry no electrical charge, so call 911 immediately and start CPR if needed (Lightning (NWS)).
+
+Sources: Lightning (NWS), Thunderstorms (Ready.gov (FEMA))
+
 ## Question 9: Someone got stung by a bee and now their face is swelling and they're having trouble breathing. What do I do?
 
 **Official guidance:** Mayo Clinic / Red Cross: this sounds like anaphylaxis, a severe allergic reaction: call 911; if they have an epinephrine auto-injector (EpiPen), help them use it in the outer thigh; a second dose may be given after 5-15 minutes if they are no better; keep them lying down (or sitting up if breathing is hard); start CPR if they stop breathing; scrape the stinger out.
 
 ### Answer A
+Sources it read: First Aid
+
+This is a life-threatening emergency (anaphylaxis). **Call 911 immediately.** Do not wait to see if it gets better.
+
+While you are waiting for help:
+
+1.  **Use an EpiPen (Epinephrine) if available:** If the person has an epinephrine auto-injector, use it right away according to the instructions in the package.
+2.  **Keep them calm and still:** Have them lie down on their back with legs raised up about 12 inches (unless this makes breathing harder). Do not let them stand or walk.
+3.  **Check breathing:** If they stop breathing, begin CPR if you are trained to do so.
+4.  **Remove the stinger:** If you can see a bee stinger in their skin, scrape it off sideways with a credit card or fingernail. Do not use tweezers, as squeezing it can inject more venom.
+
+**Do not** give them food or water while they are having trouble breathing, as they could choke.
+
+Sources: none (from my own knowledge)
+
+### Answer B
+Sources it read: Anaphylaxis | Anaphylactic Shock; IFRC International First Aid, Resuscitation and Education Guidelines 2020; First Aid (FM 4-25.11)
+
+This is a life-threatening medical emergency known as anaphylactic shock. You must act immediately.
+
+1. **Call 911 or your local emergency number right now.** Tell them the person is having trouble breathing and their face is swelling after a bee sting.
+2. **Use an Epinephrine Auto-Injector (EpiPen) if available.** Ask if they have one, and if so, help them use it immediately according to the instructions in the kit.
+3. **Remove the stinger only by scraping.** If you see the stinger, scrape it off sideways with a fingernail or a knife blade. Do not squeeze it, as this will inject more venom into their body.
+4. **Keep them calm and still.** Reassure them while waiting for emergency responders to arrive.
+
+Do not wait to see if symptoms get worse. Get professional medical help immediately.
+
+Sources: First Aid (FM 4-25.11), Anaphylaxis | Anaphylactic Shock (MedlinePlus)
+
+### Answer C
 Sources it read: Anaphylaxis | Anaphylactic Shock; IFRC International First Aid, Resuscitation and Education Guidelines 2020
 
 This is a life-threatening emergency (anaphylactic shock). Call **911 immediately**.
@@ -197,19 +281,3 @@ This is a life-threatening emergency (anaphylactic shock). Call **911 immediatel
 Even if they start to feel better after using an EpiPen, they still need emergency medical care because symptoms can return.
 
 Sources: Anaphylaxis | Anaphylactic Shock (MedlinePlus (NIH)); IFRC International First Aid, Resuscitation and Education Guidelines 2020 (IFRC and WHO first-aid and emergency care guides)
-
-### Answer B
-Sources it read: First Aid
-
-This is a life-threatening emergency (anaphylaxis). **Call 911 immediately.** Do not wait to see if it gets better.
-
-While you are waiting for help:
-
-1.  **Use an EpiPen (Epinephrine) if available:** If the person has an epinephrine auto-injector, use it right away according to the instructions in the package.
-2.  **Keep them calm and still:** Have them lie down on their back with legs raised up about 12 inches (unless this makes breathing harder). Do not let them stand or walk.
-3.  **Check breathing:** If they stop breathing, begin CPR if you are trained to do so.
-4.  **Remove the stinger:** If you can see a bee stinger in their skin, scrape it off sideways with a credit card or fingernail. Do not use tweezers, as squeezing it can inject more venom.
-
-**Do not** give them food or water while they are having trouble breathing, as they could choke.
-
-Sources: none (from my own knowledge)

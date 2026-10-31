@@ -25,6 +25,20 @@ Sources it read: Hand washing
 **Sources:** Hand washing (WikiMed)
 
 ### Answer B
+Sources it read: Germs | Hygiene; FEMA CERT Basic Training Participant Manual; US Army ATP 4-25.12: Unit Field Sanitation; Unit Field Sanitation Team (FM 4-25.12)
+
+Use an alcohol-based hand sanitizer. This is the recommended alternative when water is unavailable.
+
+1. Check that the sanitizer contains at least 60% alcohol.
+2. Apply about ½ teaspoon to the palm of your hand.
+3. Rub your hands together vigorously, covering all surfaces including between fingers and around thumbs.
+4. Continue rubbing until your hands are completely dry.
+
+Note: Sanitizers do not remove dirt or grease effectively. If your hands are visibly dirty, use a damp cloth with soap if available, or sanitize only after removing visible debris.
+
+Sources: FEMA CERT Basic Training Participant Manual
+
+### Answer C
 Sources it read: Germs | Hygiene
 
 # Keeping Hands Clean Without Running Water
@@ -58,6 +72,25 @@ Sources: Germs | Hygiene (MedlinePlus (NIH))
 **Official guidance:** CDC: freshly pumped milk is fine at room temperature (up to 77°F / 25°C) for up to 4 hours; in an insulated cooler with frozen ice packs, up to 24 hours (1 day); use thawed milk within 1-2 hours at room temperature and never refreeze it; use leftovers from a feeding within 2 hours, then discard.
 
 ### Answer A
+Sources it read: Breast pump; Breast milk; How to Pump Breast Milk; How to Know when Expressed Breast Milk Is Spoiled
+
+**Do this now:**
+1. Use the pumped breast milk within **6 hours** of it being left out at room temperature if the room is around 70°F (21°C). If the room is cooler, it may be safe for up to 8 hours, but 6 hours is the standard limit.
+2. Keep the fridge and freezer doors closed during the power outage; a closed fridge keeps food cold for about 4 hours.
+3. If you have ice packs or a cooler, store the milk in an insulated container with them to extend its safe life up to 24 hours.
+
+**Do NOT:**
+1. Do not feed your baby milk that has been out at room temperature for more than 6–8 hours.
+2. Do not refreeze breast milk that has thawed or been left out, unless it was kept on ice in a cooler (up to 24 hours).
+3. Do not microwave breast milk; this can create hot spots and destroy antibodies.
+
+**Get help if:**
+1. Your baby shows signs of dehydration (fewer than 6 wet diapers in 24 hours, no tears when crying, sunken soft spot on head) or illness (vomiting, diarrhea, fever). Contact your pediatrician or seek urgent care.
+2. You are unsure if other perishable foods (like formula or cow's milk) have spoiled; follow USDA guidelines and discard any perishable food that has been above 40°F for more than 2 hours.
+
+Sources: Breast pump (WikiMed), Breast milk (WikiMed), How to Know when Expressed Breast Milk Is Spoiled (wikiHow), Food safety after a power outage or flood (USDA)
+
+### Answer B
 Sources it read: none
 
 Pumped breast milk can stay out at room temperature (up to 77°F or 25°C) for up to **4 hours**. If the room is warmer than that, it should be used within **1 hour**.
@@ -66,7 +99,7 @@ Since the power is out, keep the fridge and freezer doors closed. A closed fridg
 
 Sources: Food safety after a power outage or flood (USDA)
 
-### Answer B
+### Answer C
 Sources it read: Breast pump; Breast milk
 
 Pumped breast milk can stay out at room temperature for **up to 8 hours**, provided the room is below 77°F (25°C). If your home is warmer than that, use it within **4 hours**.
@@ -83,6 +116,16 @@ Since the power is out:
 **Official guidance:** Ready.gov / NWS: keep a battery-powered or hand-crank radio, ideally a NOAA Weather Radio, with spare batteries; a car radio also works (run the car outdoors only); Wireless Emergency Alerts still reach cell phones while the network works; follow local officials' instructions.
 
 ### Answer A
+Sources it read: none
+
+Use a battery-powered or hand-cranked NOAA Weather Radio. These devices broadcast official warnings and severe weather alerts from the National Weather Service and will continue to function even when power and internet are down. If you have a standard AM/FM radio with batteries, you can also use it to listen to local news stations for updates on the situation in your area.
+
+Sources:
+- Emergency Alerts (Ready.gov)
+- Power Outages (Ready.gov)
+- NOAA Weather Radio (Wikipedia)
+
+### Answer B
 Sources it read: Emergency Alerts
 
 Use a battery-powered or hand-crank **NOAA Weather Radio**. This is the only reliable way to get official weather warnings and emergency alerts when both power and internet are down.
@@ -95,7 +138,7 @@ Use a battery-powered or hand-crank **NOAA Weather Radio**. This is the only rel
 
 Sources: Ready.gov (FEMA), Wikipedia
 
-### Answer B
+### Answer C
 Sources it read: Power Outages
 
 You can still get news and weather warnings using a battery-powered or hand-cranked radio. Here is how:
@@ -113,6 +156,27 @@ Sources: Ready.gov (FEMA) Power Outages guide, NOAA Weather Radio (Wikipedia), i
 **Official guidance:** Ready.gov: make a family communication plan: text rather than call (texts often get through when calls don't); choose an out-of-town contact everyone checks in with; agree on meeting places near home and outside the neighborhood; write numbers down on paper, since phones may die; know the school and work emergency plans.
 
 ### Answer A
+Sources it read: Family Emergency Planning
+
+According to FEMA's Ready.gov guidelines, here are the key steps to ensure your family can find each other if separated by a disaster:
+
+1. **Designate an out-of-area contact**: Choose one person who lives outside your immediate area for all family members to check in with. Long-distance calls often work better when local networks are congested.
+
+2. **Establish two meeting places**: 
+   - A location near your home (like a neighbor's house or a specific tree)
+   - A location outside your neighborhood (like a library, community center, or relative's house)
+
+3. **Use text messaging**: Texts often get through when voice calls cannot due to network congestion. Ensure everyone has emergency contact numbers programmed in their phones and knows to use texts if possible.
+
+4. **Create a written communication plan**: Include all family members' phone numbers, work/school addresses, the out-of-area contact person's information, and both meeting place locations. Share copies with schools, workplaces, and keep physical copies accessible.
+
+5. **Practice regularly**: Review and rehearse your plan at least twice a year so everyone knows what to do without hesitation.
+
+6. **Consider technology tools**: Download the FEMA App for emergency alerts and use social media safety check-in features if available.
+
+Sources: Ready.gov (FEMA) - Family Emergency Planning
+
+### Answer B
 Sources it read: Low and No Cost Preparedness
 
 Create a **Family Communications Plan** before disaster strikes. Here are the key steps:
@@ -139,49 +203,25 @@ Create a **Family Communications Plan** before disaster strikes. Here are the ke
 
 Sources: Ready.gov (FEMA) - Low and No Cost Preparedness
 
-### Answer B
+### Answer C
 Sources it read: Family Emergency Planning
 
-According to FEMA's Ready.gov guidelines, here are the key steps to ensure your family can find each other if separated by a disaster:
+To find each other when separated by a disaster, you must plan in advance using these steps:
 
-1. **Designate an out-of-area contact**: Choose one person who lives outside your immediate area for all family members to check in with. Long-distance calls often work better when local networks are congested.
+1.  **Choose an Out-of-Area Contact:** Select a friend or relative who lives far away to serve as your central point of contact. Long-distance calls are more likely to go through than local ones when regional networks are jammed. Everyone should memorize this person’s number.
+2.  **Set Two Meeting Places:**
+    *   **Near Home:** Pick a specific spot just outside your home (like a neighbor’s house or a large tree) for immediate emergencies like fires.
+    *   **Outside Neighborhood:** Pick a secure location outside your community (like a public library, school, or relative’s house in another town) if you are forced to evacuate.
+3.  **Teach Texting:** Ensure every family member knows how to send text messages. SMS texts require less bandwidth than voice calls and often succeed when phone lines are overloaded.
+4.  **Keep a Written List:** Do not rely solely on phone contacts. Write down all key numbers (out-of-area contact, meeting locations, local emergency services) on paper cards kept in wallets and backpacks.
 
-2. **Establish two meeting places**: 
-   - A location near your home (like a neighbor's house or a specific tree)
-   - A location outside your neighborhood (like a library, community center, or relative's house)
-
-3. **Use text messaging**: Texts often get through when voice calls cannot due to network congestion. Ensure everyone has emergency contact numbers programmed in their phones and knows to use texts if possible.
-
-4. **Create a written communication plan**: Include all family members' phone numbers, work/school addresses, the out-of-area contact person's information, and both meeting place locations. Share copies with schools, workplaces, and keep physical copies accessible.
-
-5. **Practice regularly**: Review and rehearse your plan at least twice a year so everyone knows what to do without hesitation.
-
-6. **Consider technology tools**: Download the FEMA App for emergency alerts and use social media safety check-in features if available.
-
-Sources: Ready.gov (FEMA) - Family Emergency Planning
+Sources: Family Emergency Planning (Ready.gov), Make A Plan (Ready.gov), FEMA: Are You Ready? An In-Depth Guide to Citizen Preparedness.
 
 ## Question 19: A dog bit my hand and broke the skin. What should I do?
 
 **Official guidance:** CDC / Mayo Clinic: wash the wound right away with soap and warm water for several minutes; stop bleeding with gentle pressure, apply antibiotic ointment and a clean bandage; see a doctor soon, since bites often get infected and you may need a tetanus shot or rabies shots; find out the dog's vaccination status and report the bite; watch for redness, swelling or pus.
 
 ### Answer A
-Sources it read: First aid for a rabies dog bite
-
-Do this immediately:
-
-1. **Wash the wound thoroughly**: Rinse with clean running water for several minutes, then wash with soap. If you have diluted povidone-iodine solution (Betadine), use that as well. This is critical to reduce infection risk.
-2. **Control bleeding**: Apply gentle pressure with a clean cloth or bandage if it's bleeding.
-3. **Cover the wound**: Use a sterile bandage or clean dressing once bleeding stops.
-4. **Seek medical attention promptly**: Go to an urgent care clinic, emergency room, or contact your doctor as soon as possible (ideally within hours). Animal bites can cause serious infections and may require antibiotics, a tetanus shot, or rabies post-exposure prophylaxis depending on the dog's vaccination status and local rabies risk.
-
-**Call 911 immediately if**:
-- Bleeding is severe and doesn't stop with pressure
-- The bite is deep, near joints, or involves nerves/tendons
-- You feel faint, dizzy, or show signs of shock
-
-Sources: First aid for a rabies dog bite (Medical Sciences Q&A (Stack Exchange))
-
-### Answer B
 Sources it read: First aid for a rabies dog bite
 
 Since your skin was broken, you need to treat this as a potential infection risk immediately. Here is what to do:
@@ -198,3 +238,30 @@ Since your skin was broken, you need to treat this as a potential infection risk
 *   The dog was acting strangely (foaming at the mouth, aggression) or is unknown/stray.
 
 Sources: First aid for a rabies dog bite (Medical Sciences Q&A (Stack Exchange))
+
+### Answer B
+Sources it read: First aid for a rabies dog bite
+
+Do this immediately:
+
+1. **Wash the wound thoroughly**: Rinse with clean running water for several minutes, then wash with soap. If you have diluted povidone-iodine solution (Betadine), use that as well. This is critical to reduce infection risk.
+2. **Control bleeding**: Apply gentle pressure with a clean cloth or bandage if it's bleeding.
+3. **Cover the wound**: Use a sterile bandage or clean dressing once bleeding stops.
+4. **Seek medical attention promptly**: Go to an urgent care clinic, emergency room, or contact your doctor as soon as possible (ideally within hours). Animal bites can cause serious infections and may require antibiotics, a tetanus shot, or rabies post-exposure prophylaxis depending on the dog's vaccination status and local rabies risk.
+
+**Call 911 immediately if**:
+- Bleeding is severe and doesn't stop with pressure
+- The bite is deep, near joints, or involves nerves/tendons
+- You feel faint, dizzy, or show signs of shock
+
+Sources: First aid for a rabies dog bite (Medical Sciences Q&A (Stack Exchange))
+
+### Answer C
+Sources it read: First aid for a rabies dog bite
+
+1. Immediately wash the wound thoroughly with soap and clean water or irrigate with a diluted povidone-iodine solution to reduce infection risk.
+2. Apply pressure with a clean cloth if bleeding heavily.
+3. Cover the wound with a sterile bandage.
+4. Seek medical attention as soon as possible. Dog bites can cause serious infections, and you may need antibiotics or a tetanus shot. If the dog's rabies vaccination status is unknown, post-exposure prophylaxis (rabies vaccine and immune globulin) must be administered by a healthcare provider immediately.
+
+Sources: First aid for a rabies dog bite (Medical Sciences Q&A), CDC - Rabies: Medical Care
